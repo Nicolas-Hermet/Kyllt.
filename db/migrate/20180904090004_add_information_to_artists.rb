@@ -9,6 +9,7 @@ class AddInformationToArtists < ActiveRecord::Migration[5.2]
     add_column :artists, :time_invest_on_project, :integer
     add_column :artists, :biography, :text
     add_column :artists, :locality, :integer
+    add_column :artists, :iban, :string
     add_column :artists, :gcs_read, :boolean
   end
 end

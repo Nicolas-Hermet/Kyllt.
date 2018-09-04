@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_090004) do
     t.integer "time_invest_on_project"
     t.text "biography"
     t.integer "locality"
+    t.string "iban"
     t.boolean "gcs_read"
     t.index ["email"], name: "index_artists_on_email", unique: true
     t.index ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true
