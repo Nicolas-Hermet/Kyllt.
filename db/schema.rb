@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead
+A# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_090004) do
+ActiveRecord::Schema.define(version: 2018_09_04_134529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2018_09_04_090004) do
     t.index ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true
   end
 
+  create_table "buffers", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "mecene_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mecene_id"], name: "index_buffers_on_mecene_id"
+    t.index ["project_id"], name: "index_buffers_on_project_id"
+  end
+
   create_table "mecenes", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -58,4 +67,25 @@ ActiveRecord::Schema.define(version: 2018_09_04_090004) do
     t.index ["reset_password_token"], name: "index_mecenes_on_reset_password_token", unique: true
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "title"
+    t.text "explanation"
+    t.bigint "artist_id"
+    t.string "category"
+    t.date "duration"
+    t.integer "budget"
+    t.integer "funding"
+    t.string "show_fav_place"
+    t.text "scope"
+    t.boolean "innovative"
+    t.boolean "validated", default: false
+    t.boolean "archived", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_projects_on_artist_id"
+  end
+
+  add_foreign_key "buffers", "mecenes"
+  add_foreign_key "buffers", "projects"
+  add_foreign_key "projects", "artists"
 end
