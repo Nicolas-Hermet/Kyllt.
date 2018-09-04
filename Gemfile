@@ -6,7 +6,9 @@ ruby '2.5.1'
 #########################
 
 gem 'devise', '~> 4.5'
-
+gem 'bootstrap', '~> 4.1.3'
+gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
+gem 'jquery-rails'
 #########################
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
