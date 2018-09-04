@@ -1,38 +1,24 @@
 <h2>Mecenes</h2>
 
 <ul>
-	<% if mecene_signed_in? %>
-	
-	<li>
-		<%= link_to "Sign out", destroy_mecene_session_path, method: :delete %>
-	</li>
-	<li>
-		You're logged with the following email : <%= current_mecene.email %>.
-	</li>
-	<li>
-		<%= link_to "Edit your account", edit_mecene_registration_path %>
-	</li>
-
-	<% else %>
-	
-	<li>
-		<%= link_to "Sign in", new_mecene_session_path %>
-	</li>
-	<li>
-		<%= link_to "Sign up", new_mecene_registration_path %>
-	</li>
-
-	<% end %>
-		
+		<% if mecene_signed_in? %>
+			<li> <%= link_to "Sign out", destroy_mecene_session_path, method: :delete %> </li>
+			<li> You're logged with the following email : <%= current_mecene.email %>. </li>
+			<li> <%= link_to "Edit your account", edit_mecene_registration_path %> </li>
+		<% else %>
+			<li> <%= link_to "Sign in", new_mecene_session_path %> </li>
+			<li> <%= link_to "Sign up", new_mecene_registration_path %> </li>
+		<% end %>
+</ul>
 
 <h2>Artists</h2>
 
 <ul>
-	<% if artist_signed_in? %>
-		<li> <%= link_to 'Edit account', edit_artist_registration_path %> </li>
-		<li> <%= link_to 'Sign out', destroy_artist_session_path, method: :delete %> </li>
-	<% else %>
-		<li> <%= link_to 'Log in', new_artist_session_path %> </li>
-		<li> <%= link_to 'Sign up', new_artist_registration_path %> </li>
-	<% end %>
+		<% if artist_signed_in? && !current_mecene %>
+			<li> <%= link_to 'Sign out', destroy_artist_session_path, method: :delete %> </li>
+			<li> <%= link_to 'Edit account', edit_artist_registration_path %> </li>
+		<% else %>
+			<li> <%= link_to 'Log in', new_artist_session_path %> </li>
+			<li> <%= link_to 'Sign up', new_artist_registration_path %> </li>
+		<% end %>
 </ul>
