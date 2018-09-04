@@ -5,4 +5,7 @@ class Mecene < ApplicationRecord
 	validates :first_name, presence: true
 	validates :last_name, presence: true 
 	validates :gcs_read, acceptance: true
+
+	has_many :buffers
+	has_many :projects, {:through => :buffers, :source=>"project"}
 end
