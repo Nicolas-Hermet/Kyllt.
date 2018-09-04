@@ -4,6 +4,51 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :school %><br />
+    <%= f.text_field :school %>
+  </div>
+
+  <div class="field">
+    <%= f.label :previous_projects %><br />
+    <%= f.text_field :previous_projects %>
+  </div>
+
+  <div class="field">
+    <%= f.label :previous_exhibitions %><br />
+    <%= f.text_field :previous_exhibitions %>
+  </div>
+
+  <div class="field">
+    <%= f.label :previous_sales %><br />
+    <%= f.text_field :previous_sales %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time_invest_on_project %><br />
+    <%= f.text_field :time_invest_on_project %>
+  </div>
+
+  <div class="field">
+    <%= f.label :biography %><br />
+    <%= f.text_field :biography %>
+  </div>
+
+  <div class="field">
+    <%= f.label :locality %><br />
+    <%= f.text_field :locality %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
