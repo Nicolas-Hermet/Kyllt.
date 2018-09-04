@@ -1,6 +1,4 @@
-<h1>Home#index</h1>
-
-<p>Find me in app/views/home/index.html.erb</p>
+<h2>Mecenes</h2>
 
 <ul>
 	<% if mecene_signed_in? %>
@@ -24,5 +22,15 @@
 		<%= link_to "Sign up", new_mecene_registration_path %>
 	</li>
 		
+
+<h2>Artists</h2>
+
+<ul>
+	<% if artist_signed_in? %>
+		<li> <%= link_to 'Edit account', edit_artist_registration_path %> </li>
+		<li> <%= link_to 'Sign out', destroy_artist_session_path, method: :delete %> </li>
+	<% else %>
+		<li> <%= link_to 'Log in', new_artist_session_path %> </li>
+		<li> <%= link_to 'Sign up', new_artist_registration_path %> </li>
 	<% end %>
 </ul>
