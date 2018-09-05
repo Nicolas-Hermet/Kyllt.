@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
 	# get 'home/index'
 
-	resources :project
+	resources :projects
 
-	get '/project/new', to: 'project#new'
-	post '/project/new', to: 'project#create'
+	get '/project/new', to: 'projects#new'
+
 end
