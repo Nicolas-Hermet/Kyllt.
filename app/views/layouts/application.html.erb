@@ -20,19 +20,27 @@
     <%= stylesheet_link_tag "remodal.css" %>
     <%= stylesheet_link_tag "remodal-default-theme.css" %>
     <%= stylesheet_link_tag "theme.css" %>
-
-</head>
+    <%= render 'renders/fancynavbar' %>
+  </head>
 
   <body class="has-sidemenu overflow-hidden-x">
-    <%= yield %>
-    <%= javascript_include_tag "js/jquery.min.js" %>
-    <%= javascript_include_tag "js/popper.min.js" %>
-    <%= javascript_include_tag "js/bootstrap.js" %>
-    <%= javascript_include_tag "js/plugins.js" %>
-    <%= javascript_include_tag "js/loaders.css.js" %>
-    <%= javascript_include_tag "js/stickyfill.min.js" %>
-    <%= javascript_include_tag "js/remodal.js" %>
-    <%= javascript_include_tag "js/rellax.min.js" %>
-    <%= javascript_include_tag "js/theme.js" %>
+    <main class="main minh-100vh" id="top">
+
+      <%= render 'renders/preloader' %>
+
+      <%= yield %>
+    </main>
+      <%= render "renders/footer" %>
+      <%= render 'renders/remodal' %>
+
+      <%= javascript_include_tag "js/jquery.min.js" %>
+      <%= javascript_include_tag "js/popper.min.js" %>
+      <%= javascript_include_tag "js/bootstrap.js" %>
+      <%= javascript_include_tag "js/plugins.js" %>
+      <%= javascript_include_tag "js/loaders.css.js" %>
+      <%= javascript_include_tag "js/stickyfill.min.js" %>
+      <%= javascript_include_tag "js/remodal.js" %>
+      <%= javascript_include_tag "js/rellax.min.js" %>
+      <%= javascript_include_tag "js/theme.js" %>
   </body>
 </html>
