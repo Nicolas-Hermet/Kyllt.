@@ -1,7 +1,6 @@
 <!-- ============================================-->
 <!-- <section> begin ============================-->
 <section class="py-0" id="page-signup">
-
   <div class="container-fluid" >
     <div class="row">
       <div class="col-lg-6 bg-white py-6">
@@ -42,8 +41,8 @@
                   <%= f.check_box :gcs_read, id:"cb6" %>
                 </div>
               </div>
-              <%= render "artists/shared/links" %>
-              </div>
+              <%= render "devise/shared/links" %>
+            </div>
           </div>
         </div>
       </div>
@@ -52,14 +51,11 @@
           <div class="bg-holder" style="background: url(<%= asset_path '8.1.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'>
           </div>
           <!--/.bg-holder-->
-
         </div>
       </div>
     </div>
-    <%= render "devise/shared/links" %>
   </div>
   <!-- end of .container-->
-
 </section>
 <!-- <section> close ============================-->
 <!-- ============================================-->
