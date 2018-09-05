@@ -1,0 +1,32 @@
+<h2>Submit your project down below</h2><br/>
+
+
+<%= form_with scope: :project, url: projects_path, local: true do |f| %>
+
+	<%= f.label :title, 'Title' %> <br>
+	<%= f.text_field :title %> <br/>
+
+	<%= f.label :description, 'Description' %> <br>
+	<%= f.text_field :description %> <br/>
+
+	<%= f.label :category, 'Art category' %> <br/>
+	<%= f.text_field :category %> <br/>
+
+	<%= f.label :duration, 'How long ?' %> <br/>
+	<%= f.text_field :duration %> <br/>
+
+	<%= f.label :budget, 'How much ?' %> <br/>
+	<%= f.text_field :budget %> <br/>
+
+	<%= f.label :show_fav_place, 'Where ?' %> <br/>
+	<%= f.text_field :show_fav_place %> <br/>
+
+	<%= f.label :scope, 'Scope ?' %> <br/>
+	<%= f.text_field :scope %> <br/>
+
+	<%= f.label :innovative, 'Innovative ?' %> <br/>
+	<%= f.text_field :innovative %> <br/> <br/>
+
+	<%= f.submit %>
+
+<% end %>
