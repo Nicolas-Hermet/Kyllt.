@@ -6542,7 +6542,7 @@ button.bg-dark:focus {
 }
 
 .bg-white {
-  background-color: #fff !important;
+  background-color: #5F4A46 !important;
 }
 
 .bg-transparent {
@@ -14381,5 +14381,42 @@ a.text-white:hover, a.text-white:focus {
 }
 
 .mecenes-left{
-  margin-right: 30vw;
+  margin-left: 21vw;
+  margin-top: 45vh;
+}
+.artists-right{
+  margin-left: 20vw;
+  margin-top: 45vh;
+}
+.white-mecene{
+  color: white;
+}
+a.white-mecene:hover{
+  color: black;
+}
+.black-artist{
+  color: white;
+}
+.li-signup{
+  font-size: 1.3rem;
+  color: white;
+  font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a.li-signup:hover{
+  color: black;
+}
+a.black-artist:hover{
+  color: black;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 1vh;
+    padding-left: 2vw;
+}
+
+#page-signup{
+  background-color: #604A46;
 }
