@@ -1,44 +1,75 @@
-<h2>Sign up</h2>
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="py-0" id="page-signup">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 px-0">
+        <div class="sticky-top h-lg-100vh py-9">
+          <div class="bg-holder" style="background: url(<%= asset_path '8.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'>
+          </div>
+          <!--/.bg-holder-->
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+        </div>
+      </div>
+      <div class="col-lg-6 bg-white py-6">
+        <div data-rellax-speed="-19" class="parallax row h-100 align-items-center justify-content-center">
+          <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll" >
+            <div class="artist-mecene-signup">
+            <h3 class="display-4 fs-2">You're an artist? <br/>
+              Sign Up!<br/></h3>
+            <h6 class="text-danger mt-3">For the people who care about culture.</h6>
+            <br/>
+            </br/>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+              <div class="row mb-4">
+                <div class="col">
+                  <%= f.text_field :first_name, class:"form-control border-300 bg-light", placeholder:"First name" %>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <%= f.text_field :last_name, class:"form-control border-300 bg-light", placeholder:"Last name" %>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-300 bg-light", placeholder:"Email" %>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+                  <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Password" %>
+                </div>
+                <div class="col">
+                  <%= f.label :confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Password confirmation" %>
+                </div>
+              </div>
+              <div class="row mb-4 align-items-center">
+                <div class="col-auto">
+                  <%= f.submit "Create an Account", class:"btn btn-dark btn-block" %>
+                </div>
+                <div class="zinput zcheckbox">
+                  <%= f.check_box :gcs_read, id:"cb6" %>
+                  <label for="cb6">By signing up, you agree to the
+                    <%= link_to "terms and conditions.", '/' %>
+                    </label>
+                </div>
+              </div>
+              <%= render "artists/shared/links" %>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class=“CGS”>
-   Read the GCS before signing up. (<a href=“#”>Here</a>) <br/>
-   <%= f.check_box :gcs_read %> <br />
- </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  <!-- end of .container-->
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
 <% end %>
-
-<%= render "artists/shared/links" %>
