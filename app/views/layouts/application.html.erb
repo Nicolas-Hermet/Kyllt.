@@ -1,15 +1,38 @@
 <!DOCTYPE html>
+<html lang="en-US" dir="ltr">
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Teamx</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <%= stylesheet_link_tag "loaders.min.css" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900" %>
+    <%= stylesheet_link_tag "remodal.css" %>
+    <%= stylesheet_link_tag "remodal-default-theme.css" %>
+    <%= stylesheet_link_tag "theme.css" %>
+
+</head>
+
+  <body class="has-sidemenu overflow-hidden-x">
     <%= yield %>
+    <%= javascript_include_tag "js/jquery.min.js" %>
+    <%= javascript_include_tag "js/popper.min.js" %>
+    <%= javascript_include_tag "js/bootstrap.js" %>
+    <%= javascript_include_tag "js/plugins.js" %>
+    <%= javascript_include_tag "js/loaders.css.js" %>
+    <%= javascript_include_tag "js/stickyfill.min.js" %>
+    <%= javascript_include_tag "js/remodal.js" %>
+    <%= javascript_include_tag "js/rellax.min.js" %>
+    <%= javascript_include_tag "js/theme.js" %>
   </body>
 </html>
