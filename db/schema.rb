@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_134529) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
-    t.text "explanation"
+    t.text "description"
     t.bigint "artist_id"
     t.string "category"
     t.date "duration"
