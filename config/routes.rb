@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 	resources :projects
 
 	get '/projects/new', to: 'projects#new'
+	
 	get '/projects', to: "projects#index"
-
 	get '/projects/:id', to: 'projects#show', as: 'show'
 
 end
