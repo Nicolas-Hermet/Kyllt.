@@ -4,6 +4,8 @@ class Project < ApplicationRecord
 	has_many :buffers
 	has_many :mecenes, through: :buffers
 
+	has_many_attached :uploads
+
 	validates :title, presence: true, length: { maximum: 200 }
 
 	validates :description, presence: true, length: { maximum: 10000 }
