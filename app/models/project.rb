@@ -14,7 +14,7 @@ class Project < ApplicationRecord
 
 	validates :duration, presence: true, length: { maximum: 10 }
 
-	validates :budget, presence: true, format: { with: /\A[0-9]+\z/, message: "only allows numbers" }
+	validates :budget, presence: true, length: { minimum: 3 }, format: { with: /\A[0-9]+\z/, message: "only allows numbers" }
 
 	validates :funding, presence: true, format: { with: /\A[0-9]+\z/, message: "only allows numbers" }
 
