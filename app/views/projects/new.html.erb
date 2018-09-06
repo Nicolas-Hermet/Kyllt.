@@ -1,7 +1,7 @@
 <h2>Submit your project down below</h2><br/>
 
 
-<%= form_for @project, url: {action: "create"} do |f| %>
+<%= form_for(:xoxo, url: projects_path) do |f| %>
 
 	<%= f.label :title, 'Title' %> <br>
 	<%= f.text_field :title %> <br/>
@@ -13,10 +13,13 @@
 	<%= f.text_field :category %> <br/>
 
 	<%= f.label :duration, 'How long ?' %> <br/>
-	<%= f.text_field :duration %> <br/>
+	<%= f.date_field :duration %> <br/>
 
 	<%= f.label :budget, 'How much ?' %> <br/>
 	<%= f.text_field :budget %> <br/>
+
+	<%= f.label :funding, 'How much ?' %> <br/>
+	<%= f.text_field :funding %> <br/>
 
 	<%= f.label :show_fav_place, 'Where ?' %> <br/>
 	<%= f.text_field :show_fav_place %> <br/>

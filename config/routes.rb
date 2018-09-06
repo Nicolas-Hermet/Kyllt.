@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
 	# get 'home/index'
 
+	resources :projects
+
+	get '/projects/new', to: 'projects#new'
+
 end
