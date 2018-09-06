@@ -14403,10 +14403,10 @@ a.white-mecene:hover{
   font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 a.li-signup:hover{
-  color: black;
+  color: #C9DAED;
 }
 a.black-artist:hover{
-  color: black;
+  color: #C9DAED;
 }
 
 ul {
@@ -14451,9 +14451,17 @@ ul {
   flex-direction: column;
 }
 
-/*.test-img-right{
-  box-shadow: 50px 50px 50px grey;
+.joinus{
+  margin-bottom: 10vh;
+  margin-top: 10vh;
 }
-.test-img-left{
-  box-shadow: -50px 50px 50px grey;
-}*/
+
+.manifesto-text{
+  font-size: 3rem;
+}
+
+.ste-name{
+  font-size: 10rem;
+  width: 70vw;
+  margin-top: 40vh;
+}
