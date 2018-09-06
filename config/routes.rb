@@ -5,13 +5,14 @@ Rails.application.routes.draw do
 
 	root 'home#index'
 
-	# get 'home/index'
-
+	resources :artists
 	resources :projects
 
 	get '/projects/new', to: 'projects#new'
 	
 	get '/projects', to: "projects#index"
 	get '/projects/:id', to: 'projects#show', as: 'show'
+
+	get '/artists/:id', to: "artists#show"
 
 end
