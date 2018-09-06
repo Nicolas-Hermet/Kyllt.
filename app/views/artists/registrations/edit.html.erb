@@ -1,93 +1,133 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="border-top border-300" id="default-process">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="container">
+    <div class="row justify-content-center text-center mb-6">
+      <div class="col-lg-6">
+        <h2 class="fs-3 fs-sm-4 text-underline mb-3">Who are you </br> <%= current_artist.first_name.capitalize %> ?</h2>
+        <p class="text-500 font-italic">We need some informations to be able to help you find the investors you're looking for. <br/>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
+        As well as for us to understand you a bit more before we meet.</p>
+        <hr class="hr-short mt-5 border-300" />
+      </div>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="row">
+      <div class="col-12 pl-lg-7">
 
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
+        <div class="row align-items-end">
+          <div class="col-lg-6 order-lg-2 text-center parallax test-img-right" data-rellax-speed="5.5">
+            <%= image_tag("betheplace.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
+              <h3>Who are you?</h3>
+              <p>Let's start by introducing yourself. <br/> <br/> <br/> <br/>
+                <%= f.text_field :first_name, class:"form-control border-300 bg-light", placeholder:"First name" %>
+                <%= f.text_field :last_name, class:"form-control border-300 bg-light", placeholder:"Last name" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="4">
+            <%= image_tag("open.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
+              <h3>Education.</h3>
+              <p>Let us know here if you've become an artist by your own will and work or if you studied the art somewhere.<br/> <br/> <br/> <br/>
+              <%= f.text_field :school, class:"form-control border-300 bg-light", placeholder:"School or selftaught?" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="3">
+            <%= image_tag("connected.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
+              <h3>Artistic background.</h3>
+              <p>Already finished some projects ?<br/> Already had exhibitions (solo or group) ?<br/>Already sold some piece of art ?<br/> We would love to hear more about it !<br/> <br/> <br/> <br/>
+              <%= f.text_field :previous_projects, class:"form-control border-300 bg-light", placeholder:"Any past project?" %>
+              <%= f.text_field :previous_exhibitions, class:"form-control border-300 bg-light", placeholder:"Any past exhibition?" %>
+              <%= f.text_field :previous_sales, class:"form-control border-300 bg-light", placeholder:"What's the price of your last sale?" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="1.5">
+            <%= image_tag("arrow.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
+              <h3>Some personnal informations.</h3>
+              <p>Your past is important to know your present. <br/>Your present is a hint of your future. <br/>Let us know how we can help you build your best future !<br/> <br/> <br/> <br/>
+              <%= f.text_field :biography, class:"form-control border-300 bg-light", placeholder:"Write us a short biography." %>
+              <%= f.text_field :time_invest_on_project, class:"form-control border-300 bg-light", placeholder:"How much are you devoted to your art ? (0 - 100 %)" %>
+              <%= f.text_field :locality, class:"form-control border-300 bg-light", placeholder:"Where do you live?" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="1">
+            <%= image_tag("hatenothing.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
+              <h3>Bank informations.</h3>
+              <p>You want to get your funding ? We then need to know your IBAN.<br/> <br/> <br/> <br/>
+              <%= f.text_field :iban, class:"form-control border-300 bg-light", placeholder:"What's your IBAN?" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row overflow-hidden pb-1">
+          <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="1">
+            <%= image_tag("kiss.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
+            <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
+              <h3>Account informations.</h3>
+              <p>Want to change your password ? The email you linked to your account ?<br/> <br/> <br/> <br/>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-300 bg-light", placeholder:"Email" %>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
 
-  <div class="field">
-    <%= f.label :school %><br />
-    <%= f.text_field :school %>
-  </div>
+                <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"New password (leave blank if you don't want to change it)" %>
+                <% if @minimum_password_length %>
+                  <br />
+                  <em><%= @minimum_password_length %> characters minimum</em>
+                <% end %>
 
-  <div class="field">
-    <%= f.label :previous_projects %><br />
-    <%= f.text_field :previous_projects %>
-  </div>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Password confirmation" %>
 
-  <div class="field">
-    <%= f.label :previous_exhibitions %><br />
-    <%= f.text_field :previous_exhibitions %>
-  </div>
+                <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control border-300 bg-light", placeholder:"(we need your current password to confirm your changes)" %>
+            </p>
+            </div>
+          </div>
+        </div>
+          <div class="submitbtn">
+            <div class="row mb-4 align-items-center">
+                <%= f.submit "Update", class:"btn btn-dark btn-block" %>
+                <% end %>
+                </div>
+              </div>
+              <div class="row mb-4 align-items-center delete-account">
+                <br/> <br/> <br/>
+                <h3>You want to leave us ?</h3>
+                <br/> <br/> <br/>
+                <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:"btn btn-dark btn-block", method: :delete %></p>
+                <br/> <br/> <br/>
+              <%= link_to "Back", :back %>
+              </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :previous_sales %><br />
-    <%= f.text_field :previous_sales %>
-  </div>
+  <!-- end of .container-->
 
-  <div class="field">
-    <%= f.label :time_invest_on_project %><br />
-    <%= f.text_field :time_invest_on_project %>
-  </div>
-
-  <div class="field">
-    <%= f.label :biography %><br />
-    <%= f.text_field :biography %>
-  </div>
-
-  <div class="field">
-    <%= f.label :locality %><br />
-    <%= f.text_field :locality %>
-  </div>
-
-  <div class="field">
-    <%= f.label :iban %><br />
-    <%= f.text_field :iban %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->

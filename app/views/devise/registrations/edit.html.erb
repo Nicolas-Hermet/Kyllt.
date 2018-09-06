@@ -1,64 +1,132 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="border-top border-300" id="default-process">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="container">
+    <div class="row justify-content-center text-center mb-6">
+      <div class="col-lg-6">
+        <h2 class="fs-3 fs-sm-4 text-underline mb-3">Who are you </br> <%= current_mecene.first_name.capitalize %> ?</h2>
+        <p class="text-500 font-italic">We need some informations to be able to help you find the projects you'll love to fund.<br/>
+        As well as for us to understand what you're looking for.</p>
+        <hr class="hr-short mt-5 border-300" />
+      </div>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="row">
+      <div class="col-12 pl-lg-7">
 
-  <%= f.label :first_name, 'First name' %> <br/>
-  <%= f.text_field :first_name %> <br/>
+        <div class="row align-items-end">
+          <div class="col-lg-6 order-lg-2 text-center parallax test-img-right" data-rellax-speed="5.5">
+            <%= image_tag("betheplace.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
+              <h3>Who are you?</h3>
+              <p>Let's start by introducing yourself. <br/> <br/> <br/> <br/>
+                <%= f.text_field :first_name, class:"form-control border-300 bg-light", placeholder:"First name" %>
+                <%= f.text_field :last_name, class:"form-control border-300 bg-light", placeholder:"Last name" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="4">
+            <%= image_tag("open.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
+              <h3>Economic preferences.</h3>
+              <p>Let us know here how we can help you with your placements.<br/>
+                What is the minimum amount of money, you want to invest ? For obvious reasons, the minimum investment is 100€.<br/>
+                How long are you able to wait for your investment to be profitable ? <br/> <br/> <br/><br/>
+              <%= f.text_field :min_budget, class:"form-control border-300 bg-light", placeholder:"How much ?" %>
+              <%= f.text_field :max_return_invest, class:"form-control border-300 bg-light", placeholder:"How long ?" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="2">
+            <%= image_tag("connected.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
+              <h3>Art preferences.</h3>
+              <p>Any preferences in the kind of art you want to fund ?<br/>
+                Tell us which kind of art you're into.<br/> <br/> <br/> <br/>
+              <%= f.text_field :art_category, class:"form-control border-300 bg-light", placeholder:"Paintings ? Photography ? ..." %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="2">
+            <%= image_tag("arrow.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
+              <h3>Places preferences</h3>
+              <p>If you want to support some local artists, enter the postal you want.<br/> <br/> <br/> <br/>
+              <%= f.text_field :locality, class:"form-control border-300 bg-light", placeholder:"75 ? 92 ? 64 ? ..." %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="1.5">
+            <%= image_tag("hatenothing.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
+              <h3>Bank informations.</h3>
+              <p>You want to get your revenue ? We then need to know your IBAN.<br/> <br/> <br/> <br/>
+              <%= f.text_field :iban, class:"form-control border-300 bg-light", placeholder:"What's your IBAN?" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row overflow-hidden pb-1">
+          <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="1.5">
+            <%= image_tag("kiss.jpg", class: "img-fluid", width: '400') %>
+          </div>
+          <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
+            <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
+              <h3>Account informations.</h3>
+              <p>Want to change your password ? The email you linked to your account ?<br/> <br/> <br/> <br/>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-300 bg-light", placeholder:"Email" %>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
 
-  <%= f.label :last_name, 'Last name' %> <br/>
-  <%= f.text_field :last_name %>
+                <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"New password (leave blank if you don't want to change it)" %>
+                <% if @minimum_password_length %>
+                  <br />
+                  <em><%= @minimum_password_length %> characters minimum</em>
+                <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Password confirmation" %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control border-300 bg-light", placeholder:"(we need your current password to confirm your changes)" %>
+            </p>
+            </div>
+          </div>
+        </div>
+          <div class="submitbtn">
+            <div class="row mb-4 align-items-center">
+                <%= f.submit "Update", class:"btn btn-dark btn-block" %>
+                <% end %>
+                </div>
+              </div>
+              <div class="row mb-4 align-items-center delete-account">
+                <br/> <br/> <br/>
+                <h3>You want to leave us ?</h3>
+                <br/> <br/> <br/>
+                <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:"btn btn-dark btn-block", method: :delete %></p>
+                <br/> <br/> <br/>
+              <%= link_to "Back", :back %>
+              </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
+  <!-- end of .container-->
 
-      <em>( <%= @minimum_password_length %> characters minimum )</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <%= f.label :min_budget, 'Your minimal budget ( in Euros )' %> <br/>
-  <%= f.text_field :min_budget %> <br/>
-
-  <%= f.label :max_return_invest, 'Back on investments' %> <br/>
-  <%= f.text_field :max_return_invest %> <br/>
-
-  <%= f.label :art_category, 'The art category you want to invest in' %> <br/>
-  <%= f.text_field :art_category %> <br/>
-
-  <%= f.label :locality, 'Where you want to invest ( postal code )' %> <br/>
-  <%= f.text_field :locality %> <br/>
-
-  <%= f.label :iban, 'Your IBAN' %> <br/>
-  <%= f.text_field :iban %> <br/> <br/>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
