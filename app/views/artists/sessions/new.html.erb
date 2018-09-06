@@ -1,26 +1,62 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="py-0" id="page-signup">
+  <div class="container-fluid" >
+    <div class="row">
+      <div class="col-lg-6 px-0">
+        <div class="sticky-top h-lg-100vh py-9">
+          <div class="bg-holder" style="background: url(<%= asset_path '8.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'>
+          </div>
+          <!--/.bg-holder-->
+        </div>
+      </div>
+      <div class="col-lg-6 bg-white py-6">
+        <div data-rellax-speed="-19" class="parallax row h-100 align-items-center justify-content-center" >
+          <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll">
+            <div class="artist-mecene-signup">
+            <h3 class="display-4 fs-2">You're an artist? <br/>
+              Log in!<br/></h3>
+            <h6 class="text-danger mt-3">For the people who care about culture.</h6>
+            <br/>
+            </br/>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="row mb-4">
+                <div class="col">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-300 bg-light", placeholder:"Email" %>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col">
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %>
+                  <br />
+                  <%= f.password_field :password, autocomplete: "current-password", class:"form-control border-300 bg-light", placeholder:"Password" %>
+                </div>
+              </div>
+              <% if devise_mapping.rememberable? -%>
+                <div class="field">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end -%>
+              <div class="row mb-4 align-items-center">
+                <div class="col-auto">
+                  <%= f.submit "Log in", class:"btn btn-dark btn-block" %>
+                </div>
+                <div class="zinput zcheckbox">
+                  <%= f.check_box :gcs_read, id:"cb6" %>
+                </div>
+              </div>
+              <%= render "artists/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
+  <!-- end of .container-->
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
 <% end %>
-
-<%= render "artists/shared/links" %>
