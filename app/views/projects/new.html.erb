@@ -9,6 +9,9 @@
 	<%= f.label :description, 'Description' %> <br>
 	<%= f.text_field :description %> <br/>
 
+    <%= f.label :uploads %><br />
+    <%= f.file_field :uploads, multiple: true, class: 'form-control' %>
+
 	<%= f.label :category, 'Art category' %> <br/>
 	<%= f.text_field :category %> <br/>
 

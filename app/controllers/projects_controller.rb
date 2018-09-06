@@ -11,4 +11,8 @@ class ProjectsController < ApplicationController
 	def show
 		@project = Project.find_by(id: params[:id])
 	end
+
+	def post_params
+		params.require(:project).permit(uploads: [])
+	end
 end
