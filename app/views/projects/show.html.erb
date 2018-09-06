@@ -1,5 +1,7 @@
 <h2>Project informations</h2>
-
+<% @project.uploads.each do |img| %>
+	<%= image_tag img %>
+<% end %>
 <%= @project.title %> <br/>
 <%= @project.description %> <br/>
 <%= @project.artist.first_name %> <br/>
