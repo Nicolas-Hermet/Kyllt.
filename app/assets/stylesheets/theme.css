@@ -14417,6 +14417,18 @@ ul {
     padding-left: 2vw;
 }
 
-#page-signup{
-  background-color: #604A46;
+.artist-mecene-signup{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.signup-align{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-mail{
+  color: white;
 }
