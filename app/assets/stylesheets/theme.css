@@ -14465,3 +14465,11 @@ ul {
   width: 70vw;
   margin-top: 40vh;
 }
+
+.img-fluid-left{
+  box-shadow: -2rem 2rem 2rem rgba(0,0,0,.175)
+}
+
+.img-fluid-right{
+  box-shadow: 2rem 2rem 2rem rgba(0,0,0,.175)
+}
