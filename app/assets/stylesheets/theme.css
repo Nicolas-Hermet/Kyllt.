@@ -14432,3 +14432,28 @@ ul {
 .login-mail{
   color: white;
 }
+
+.globaledit{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: red;
+  width: 33%;
+  margin-left: 33%;
+}
+
+.submitbtn{
+  margin-top: 10vh;
+}
+
+.delete-account{
+  display: flex;
+  flex-direction: column;
+}
+
+/*.test-img-right{
+  box-shadow: 50px 50px 50px grey;
+}
+.test-img-left{
+  box-shadow: -50px 50px 50px grey;
+}*/
