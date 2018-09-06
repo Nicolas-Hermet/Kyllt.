@@ -1,0 +1,6 @@
+<h2>All projects</h2>
+
+<% @project.each do |x| %>
+	<a href=<%= project_path(x.id) %>> <%= x.title %> </a> <br/>
+	<%= x.description %> <br/> <br/>
+<% end %>
