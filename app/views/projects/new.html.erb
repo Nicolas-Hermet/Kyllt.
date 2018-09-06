@@ -1,7 +1,7 @@
 <h2>Submit your project down below</h2><br/>
 
 
-<%= form_with scope: :project, url: projects_path, local: true do |f| %>
+<%= form_for @project, url: {action: "create"} do |f| %>
 
 	<%= f.label :title, 'Title' %> <br>
 	<%= f.text_field :title %> <br/>
@@ -27,6 +27,6 @@
 	<%= f.label :innovative, 'Innovative ?' %> <br/>
 	<%= f.text_field :innovative %> <br/> <br/>
 
-	<%= f.submit %>
+	<%= f.submit "Submit" %>
 
 <% end %>
