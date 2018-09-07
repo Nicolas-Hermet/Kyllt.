@@ -8,6 +8,13 @@
               <h2 data-rellax-speed="8" class="parallax"><span class="white-mecene">Mécène</span></h2>
                 <ul data-rellax-speed="8" class="parallax">
                 	<% if mecene_signed_in? %>
+                <!-- ##################### -->
+
+
+                <h2><%= link_to 'PROFILE PAGE', mecene_path(current_mecene.id) %></h2>
+
+              
+                <!-- ##################### -->
                 	<li><%= link_to "Sign out", destroy_mecene_session_path, method: :delete, class: "white-mecene", class:"li-signup" %></li>
                 	<li class="login-mail">You're logged with the following email : <%= current_mecene.email %>.</li>
                 	<li><%= link_to "Edit account", edit_mecene_registration_path, class: "white-mecene", class:"li-signup" %></li>
