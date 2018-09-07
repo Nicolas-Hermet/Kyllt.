@@ -11,6 +11,7 @@ gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
 gem 'jquery-rails'
 gem 'google-cloud-storage'
 gem 'pry'
+gem 'mini_magick'
 #########################
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

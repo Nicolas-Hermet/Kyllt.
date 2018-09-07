@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 	root 'home#manifesto'
 
 	get 'home/index'
-
+	resources :artists
+	resources :mecenes
 	resources :projects
 
 	get '/projects/new', to: 'projects#new'
@@ -14,4 +15,7 @@ Rails.application.routes.draw do
 	get '/projects', to: "projects#index"
 	get '/projects/:id', to: 'projects#show', as: 'show'
 	get '/manifesto', to: 'home#manifesto'
+	get '/artists/:id', to: "artists#show"
+	get '/mecenes/:id', to: "mecenes#show"
+
 end

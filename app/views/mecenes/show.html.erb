@@ -1,0 +1,9 @@
+<h2> Welcome to your profile page <%= current_mecene.first_name %> <%= current_mecene.last_name %></h2> <br/>
+
+<p></p>
+
+<p>You're currently logged with the following email : <%= current_mecene.email %></p> <br/>
+
+<p>You can edit your profil by clicking : <%= link_to 'Here', edit_mecene_registration_path %></p> <br/>
+
+<p>You can see all the projects here : <%= link_to 'Here', projects_path %></p> <br/> 
