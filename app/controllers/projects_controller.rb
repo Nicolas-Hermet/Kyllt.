@@ -1,3 +1,4 @@
+require 'google/cloud/storage'
 class ProjectsController < ApplicationController
 	def index
 		@project = Project.all
@@ -34,6 +35,17 @@ class ProjectsController < ApplicationController
 		@project = Project.new(post_params)
 		@project.artist = current_artist
 		@project.save
+		binding.pry
+		storage = Google::Cloud::Storage.new(
+		project_id: "teamx-art"
+      # credentials: "/home/nico/Bureau/temp/debrouille/thp-s06-mardi-ace5327bc7ed.json"
+      # credentials: Rails.application.credentials.dig(:file, :google_json_file)  # NOP
+       # credentials: (Rails.application.credentials.dig(:gcs)).to_json  # NOP
+      # credentials: "./google.api.json" # NOP
+    )
+    bucket = storage.bucket "teamx-art-bucket"
+    file = bucket.create_file params[:project][:uploads][0].tempfile, "Projects/"+params[:project][:uploads][0].original_filename
+
 		# @project.avatar = params[:project][:avatar]
 		redirect_to projects_path
 	end
