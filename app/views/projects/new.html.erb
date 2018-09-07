@@ -11,7 +11,7 @@
         <hr class="hr-short mt-5 border-300" />
       </div>
     </div>
-    <%= form_for(:xoxo, url: projects_path) do |f| %>
+    <%= form_for(:project, url: projects_path, html: { method: :create}) do |f| %>
 
     <div class="row">
       <div class="col-12 pl-lg-7">

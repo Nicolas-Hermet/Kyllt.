@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 	  	puts post_params
 	  	puts
 	  	# puts params[:project][:avatar].tempfile
-	  	# puts 
+	  	# puts
 	  	# puts params.inspect
 	  	# puts
 	  	puts
@@ -34,6 +34,7 @@ class ProjectsController < ApplicationController
 		# 			   )
 		@project = Project.new(post_params)
 		@project.artist = current_artist
+		binding.pry
 		@project.save
 		# binding.pry
 		# storage = Google::Cloud::Storage.new(
