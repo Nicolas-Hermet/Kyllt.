@@ -25,19 +25,15 @@
           <div class="bg-holder" style="background: url(<%= asset_path '8.1.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'>
             <div class="artists-right">
               <h2 data-rellax-speed="8" class="parallax"><span class="black-artist">Artiste</span></h2>
-
-
-              <!-- ##################### -->
-
-
-              <h2><%= link_to 'PROFILE PAGE', artist_path(current_artist.id) %></h2>
-
-              
-              <!-- ##################### -->
-              
-
               <ul data-rellax-speed="8" class="parallax">
                 <% if artist_signed_in? %>
+                <!-- ##################### -->
+
+
+                <h2><%= link_to 'PROFILE PAGE', artist_path(current_artist.id) %></h2>
+
+              
+                <!-- ##################### -->
                   <li> <%= link_to 'Sign out', destroy_artist_session_path, method: :delete, class: "black-artist", class:"li-signup" %> </li>
                   <li class="login-mail">You're logged with the following email : <%= current_artist.email %>.</li>
                   <li> <%= link_to 'Edit account', edit_artist_registration_path, class: "black-artist", class:"li-signup" %> </li>

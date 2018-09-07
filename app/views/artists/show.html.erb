@@ -1,9 +1,15 @@
-<h2> Welcome to your profile page <%= @artist.first_name %> <%= @artist.last_name %></h2> <br/>
+<h2> Welcome to your profile page <%= current_artist.first_name %> <%= current_artist.last_name %></h2> <br/>
 
-<p>You're currently logged with the following email : <%= @artist.email %></p> <br/>
+<p>You're currently logged with the following email : <%= current_artist.email %></p> <br/>
 
 <p>You can edit your profil by clicking : <%= link_to 'Here', edit_artist_registration_path %></p> <br/>
 
 <p>You also can submit project here : <%= link_to 'Here', new_project_path %></p> <br/>
 
-<p>Here your last project : <%=link_to @project.title, project_path(Project.find_by(artist: @artist).id) %></p>
+<% if Project.where(artist: current_artist).count > 0 %>
+
+<p>Here your last project : <%=link_to @project.title, project_path(Project.find_by(artist: current_artist).id) %></p>
+
+<% else %>
+
+<% end %>
