@@ -151,14 +151,20 @@
 <!-- ==================================-->
 <h2>Submit your project down below</h2><br/>
 
+<% if false %>
+<%= form_for(:project, url: projects_path) do |f| %>
+<% end %>
+<% end %>
 
-<%= form_for(:xoxo, url: projects_path) do |f| %>
-
+<%= form_for(:project, url: projects_path, html: { method: :create }) do |f| %>
 	<%= f.label :title, 'Title' %> <br>
 	<%= f.text_field :title %> <br/>
 
 	<%= f.label :description, 'Description' %> <br>
 	<%= f.text_field :description %> <br/>
+
+    <%= f.label :uploads %><br />
+    <%= f.file_field :uploads, multiple: true %>
 
 	<%= f.label :category, 'Art category' %> <br/>
 	<%= f.text_field :category %> <br/>
