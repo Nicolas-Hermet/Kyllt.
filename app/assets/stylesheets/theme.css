@@ -14473,3 +14473,20 @@ ul {
 .img-fluid-right{
   box-shadow: 2rem 2rem 2rem rgba(0,0,0,.175)
 }
+
+.preview_uploads{
+  width: 10px;
+}
+
+.img-fluid2 {
+  max-width: 400px;
+
+  height: auto;
+}
+
+.index-flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
