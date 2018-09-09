@@ -12,10 +12,10 @@ class Mecenes::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-   def create
-     session["#{resource_name}_return_to"] = edit_mecene_registration_path
-     super
-   end
+   # def create
+   #   session["#{resource_name}_return_to"] = edit_mecene_registration_path
+   #   super
+   # end
 
   # GET /resource/edit
   # def edit
@@ -23,9 +23,11 @@ class Mecenes::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    @mecene.avatar.purge
+    @mecene.avatar.attach(params.require(:mecene)[:avatar])
+  end
 
   # DELETE /resource
   # def destroy

@@ -1,6 +1,12 @@
 <h2> Welcome to your profile page <%= current_mecene.first_name %> <%= current_mecene.last_name %></h2> <br/>
 
 <p></p>
+<% if current_mecene.avatar.attached? %>
+	
+    <%= link_to image_tag current_mecene.avatar %>
+<% else %>
+	<%= link_to 'Ajouter votre photo de profil', edit_mecene_registration_path %>
+<% end %>
 
 <p>You're currently logged with the following email : <%= current_mecene.email %></p> <br/>
 
