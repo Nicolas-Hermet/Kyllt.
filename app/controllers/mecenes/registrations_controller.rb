@@ -12,10 +12,10 @@ class Mecenes::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-   def create
-     session["#{resource_name}_return_to"] = edit_mecene_registration_path
-     super
-   end
+   # def create
+   #   session["#{resource_name}_return_to"] = edit_mecene_registration_path
+   #   super
+   # end
 
   # GET /resource/edit
   # def edit
@@ -25,7 +25,8 @@ class Mecenes::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
-    binding.pry
+    @mecene.avatar.purge
+    @mecene.avatar.attach(params.require(:mecene)[:avatar])
   end
 
   # DELETE /resource
@@ -50,9 +51,9 @@ class Mecenes::RegistrationsController < Devise::RegistrationsController
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  end
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  # end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
