@@ -12,10 +12,10 @@ class Artists::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-   def create
-    session["#{resource_name}_return_to"] = edit_artist_registration_path
-    super
-   end
+   # def create
+   #  session["#{resource_name}_return_to"] = edit_artist_registration_path
+   #  super
+   # end
 
   # GET /resource/edit
   # def edit
@@ -25,7 +25,6 @@ class Artists::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
-    # binding.pry
     @artist.avatar.purge
     @artist.avatar.attach(params.require(:artist)[:avatar])
   end
@@ -53,7 +52,7 @@ class Artists::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute, :avatar, :artist])
   # end
 
   # The path used after sign up.
