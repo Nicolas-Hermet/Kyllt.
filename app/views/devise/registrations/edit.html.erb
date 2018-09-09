@@ -24,6 +24,7 @@
             <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
               <h3>Who are you?</h3>
               <p>Let's start by introducing yourself. <br/> <br/> <br/> <br/>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-300 bg-light", placeholder:"Email" %>
                 <%= f.text_field :first_name, class:"form-control border-300 bg-light", placeholder:"First name" %>
                 <%= f.text_field :last_name, class:"form-control border-300 bg-light", placeholder:"Last name" %></p>
             </div>
@@ -89,7 +90,7 @@
             <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
               <h3>Account informations.</h3>
               <p>Want to change your password ? The email you linked to your account ?<br/> <br/> <br/> <br/>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-300 bg-light", placeholder:"Email" %>
+
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                 <% end %>
