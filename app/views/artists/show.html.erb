@@ -1,4 +1,4 @@
-<h2> Welcome to your profile page <%= current_artist.first_name %> <%= current_artist.last_name %></h2> <br/>
+<!-- <h2> Welcome to your profile page <%= current_artist.first_name %> <%= current_artist.last_name %></h2> <br/>
 
 <p>You're currently logged with the following email : <%= current_artist.email %></p> <br/>
 
@@ -13,3 +13,163 @@
 <% else %>
 
 <% end %>
+
+-->
+
+
+
+<!-- ============================================-->
+
+
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
+
+  <div class="bg-holder bg-holder-2" style="background: url(<%= asset_path 'banner.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'>
+
+  </div>
+  <!--/.bg-holder-->
+
+  <div class="container">
+    <div class="row">
+
+    </div>
+    <div class="row justify-content-center text-center py-7">
+      <div class="col-lg-9 px-4">
+        <h3 class="fs-2 fs-sm-3 text-white text-profile">Welcome to your profile <%= current_artist.first_name %> <%= current_artist.last_name %></h3>
+        <br/>
+
+          <%= link_to 'Submit a new project', new_project_path, class:"btn btn-danger btn-sm px-7 mt-4" %>
+
+      </div>
+    </div>
+  </div>
+
+<!-- end of .container-->
+
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
+
+
+<!-- ============================================-->
+
+<!-- begin profile pic-->
+<div class="col-12 mt-6">
+  <div class="bg-light p-5 rounded">
+    <div class="row no-gutters justify-content-right text-center text-sm-left">
+      <div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3 align-self-center pr-sm-3 pb-3 pb-sm-0">
+        <%= image_tag("profile.jpg", class: " rounded-circle img-fluid img-fluid", width: '200') %>
+      </div>
+      <div class="col-sm">
+        <h5><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></h5>
+        <p class="text-sans-serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br />
+        <p class="lead font-italic text-400 px-lg-7">You're currently logged with the following email : <%= current_artist.email %></p>
+        <%= link_to 'Modifier le profil', edit_artist_registration_path, class:"btn btn-dark btn-sm px-7 mt-4" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- end of profile pic-->
+
+
+<!-- <section> begin ============================-->
+
+<section id="default-cta-3">
+
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+
+        <a class="btn btn-outline-dark rounded-capsule mt-4" href="#"><%= @project.title %></a>
+        <div class="col ml-auto text-sans-serif text-center"> <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- end of .container-->
+
+
+</section>
+<!-- <section> begin ============================-->
+
+<section id="default-cta-3">
+  <div class="container">
+
+    <div class="progress-line mr-4" data-options='{"progress":<%= rand(1..100) %>,"text":"Avancée du projet."}'></div><br>
+    <br>
+    <div class="progress-line mr-4" data-options='{"progress":<%= rand(1..100) %>,"text":"Avancée du financement."}'></div>
+    <div class="row justify-content-center text-center">
+    </p><class="col-lg-8 text-black text-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+    <div class="overflow-hidden"><br>
+      <h4 class="text-uppercase font-weight-normal ls text-white bg-dark p-1 rounded d-inline-block" data-zanim-xs='{"delay":0.1}'>Résumé du projet</h4>
+    </div>
+    <!-- end of .container-->
+
+<!-- <section> begin ============================-->
+<section id="default-cta-3">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <p class="px-lg-6 px-md-5"><%= @project.description %></p>
+    </div>
+  </div>
+</div>
+
+
+</section>
+  <!-- end of .container-->
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+  <!-- projet résumé-->
+
+
+     <section>
+
+      <div class="container">
+        <div class="row index-flex parallax" data-rellax-speed="1">
+
+          <div class="col-lg-6">
+            <div class="py-9 h-100 position-relative">
+    					<div>
+                <%= image_tag (@project.uploads[0]), class: "img-fluid2" %>
+              </div>
+              <!--/.bg-holder-->
+            </div>
+          </div>
+          <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
+    				<!--   progressbar a pluger!  -->
+
+            <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= @project.budget %></span><span class="fs-0"> €</span>
+            </div>
+
+
+            <ul class="list-unstyled mt-4">
+
+
+
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= @project.category %></span></h6>
+              </li>
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= @project.duration %></span></h6>
+              </li>
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= @project.scope %></span></h6>
+              </li>
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= @project.show_fav_place %></span></h6>
+              </li>
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= @project.innovative %></span></h6>
+              </li>
+            </ul>
+
+          </div>
+      </div>
+    </div>
+      <!-- end of .container-->

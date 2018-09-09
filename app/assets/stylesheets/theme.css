@@ -14490,3 +14490,32 @@ ul {
   justify-content: center;
   align-items: center;
 }
+
+.slider-project{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dispo-projet{
+  width: 100%;
+}
+
+.content-project{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bg-holder-2 {
+  width: 100vw;
+}
+
+.text-profile{
+  text-shadow: 0.2px 0.2px 0 #000;
+}
+
+.rounded-circle{
+  margin-left: 5vw;
+  box-shadow: 5px 5px 20px grey;
+}

@@ -1,7 +1,7 @@
 <!-- ============================================-->
 <!-- <section> begin ============================-->
 <section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
-	<div class="bg-holder overlay parallax rounded" style="background: url(<%= asset_path 'banner.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}';data-rellax-percentage="1">
+	<div class="bg-holder overlay parallax rounded" style="background: url(<%= asset_path 'banner2.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}';data-rellax-percentage="1">
 	</div>
   <!--/.bg-holder-->
   <div class="container">
@@ -18,55 +18,88 @@
       </div>
     </div>
   </div>
-  <!-- end of .container-->
+<!-- end of .container-->
 
 </section>
 
-<section>
 
-  <div class="container">
-    <div class="row index-flex parallax" data-rellax-speed="4">
-			<% @project.each do |x| %>
-      <div class="col-lg-6">
-        <div class="py-9 h-100 position-relative">
-					<div>
-            <%= image_tag (x.uploads[0]), class: "img-fluid2" %>
+<section>
+  <div class="slider-project" >
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+      <div class="row no-gutters">
+        <div class="col-12 overflow-hidden rounded" data-zanim-timeline='{"delay":0.2}' data-zanim-trigger="scroll">
+          <div class="row" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
+            <div class="col">
+              <div class="owl-carousel owl-theme owl-theme-vertical-1 owl-dots-inner owl-theme-white" data-options='{"items":1,"autoplay":false,"loop":true,"animateOut":"fadeOut","nav":true,"margin":30}'>
+                <% @project.uploads.each do |upload| %>
+                	<% if upload.variable? %>
+                		<%= link_to image_tag(upload), upload, :class=> 'preview_uploads' %>
+                	<% elsif upload.previewable? %>
+                		<%= link_to image_tag(upload.preview(resize: '400x600')), rails_blob_path(upload, disposition: :attachment), :class=> 'preview_uploads' %>
+                	<% elsif upload.image? %>
+                		<%= link_to image_tag(upload, width: 400), upload,:class=> 'preview_uploads' %>
+                	<% else %>
+                		<%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
+                	<% end %>
+                <% end %>
+              </div>
+            </div>
           </div>
-          <!--/.bg-holder-->
         </div>
       </div>
-      <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+    <div class="row index-flex parallax" data-rellax-speed="2">
+      <div class="col-lg-12 pl-lg-8 pl-xl-12 mt-4 mt-lg-0">
 				<!--   progressbar a pluger!  -->
 				<div class="progress-line mr-4" data-options='{"progress":<%= rand(0..100) %>,"text":"Funding"}'></div>
-        <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= x.budget %></span><span class="fs-0"> €</span>
-        </div>
-        <a class="text-black" href="page-product-single.html">
-          <h3 class="mb-0"><a href=<%= project_path(x.id) %>> <%= x.title %> </a></h3>
-        </a>
-        <p class="lead text-sans-serif"><%= x.description %></p>
-        <ul class="list-unstyled mt-4">
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><span class="font-weight-normal pl-1"><%= x.artist.first_name.capitalize %> <%= x.artist.last_name[0].capitalize %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= x.category %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= x.duration %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= x.scope %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= x.show_fav_place %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= x.innovative %></span></h6>
-          </li>
-        </ul>
-        <a class="btn btn-dark btn-sm px-7 mt-4" href="<%= project_path(x.id) %>">Fund this project</a>
-      </div>
-		<% end %>
+        <!--     -->
+          <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= @project.budget %></span><span class="fs-0"> €</span>
+          </div>
+            <div class="content-project">
+              <div>
+              <p class="text-black" href="page-product-single.html">
+                <h3 class="mb-0"><%= @project.title %></h3>
+              </p>
+              </div>
+              <div>
+              <p class="lead text-sans-serif">   <%= @project.description %></p>
+              </div>
+              <div>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><br/>
+                </div>
+                <div>
+                  <span class="font-weight-normal pl-1"><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></span></h6>
+                  </div>
+                  <div>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><br/>
+                  <span class="font-weight-normal pl-1"><%= @project.category %></span></h6>
+                  </div>
+                  <div>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><br/>
+                  <span class="font-weight-normal pl-1"><%= @project.duration %></span></h6>
+                  </div>
+                  <div>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><br/>
+                  <span class="font-weight-normal pl-1"><%= @project.scope %></span></h6>
+                  </div>
+                  <div>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><br/>
+                  <span class="font-weight-normal pl-1"><%= @project.show_fav_place %></span></h6>
+                  </div>
+                  <div>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><br/>
+                  <span class="font-weight-normal pl-1"><%= @project.innovative %></span></h6>
+                  </div>
+              </div>
+          </div>
+        <a class="btn btn-dark btn-sm px-7 mt-4" href="<%= project_path(:id) %>">Fund this project</a>
+    </div>
   </div>
 </div>
   <!-- end of .container-->
@@ -74,36 +107,3 @@
 </section>
 <!-- <section> close ============================-->
 <!-- ============================================-->
-
-
-
-<h2>Project informations</h2>
-
-
-
-
-<!-- Loop on files that have been uploaded by artist -->
-<% @project.uploads.each do |upload| %>
-	<% if upload.variable? %>
-		<%= link_to image_tag(upload), upload, width:'100' %>
-	<% elsif upload.previewable? %>
-		<%= link_to image_tag(upload.preview), rails_blob_path(upload, disposition: :attachment), :class=> 'preview_uploads' %>
-	<% elsif upload.image? %>
-		<%= link_to image_tag(upload, width: 400), upload,:class=> 'preview_uploads' %>
-	<% else %>
-		<%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
-	<% end %>
-<% end %>
-
-
-<!-- attributes content for display purposes -->
-<%= @project.title %>
-<%= @project.description %>
-<%= @project.artist_id %>
-<%= @project.category %>
-<%= @project.duration %>
-<%= @project.budget %>
-<%= @project.funding %>
-<%= @project.show_fav_place %>
-<%= @project.scope %>
-<%= @project.innovative %>

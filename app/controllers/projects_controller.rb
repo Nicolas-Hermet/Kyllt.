@@ -7,7 +7,6 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(post_params)
 		@project.artist = current_artist
-		binding.pry
 		@project.save
 		redirect_to projects_path
 	end
