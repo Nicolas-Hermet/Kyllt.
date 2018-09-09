@@ -6,9 +6,9 @@ class Artist < ApplicationRecord
 	validates :email, presence: true, uniqueness: { case_sensitive: false }
 	validates_format_of :email, :with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
-	validates :first_name, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+	validates :first_name, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "only allows letters" }
 
-	validates :last_name, presence: true, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+	validates :last_name, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "only allows letters" }
 
 	validates :school, length: { maximum: 250 }, on: :create, allow_blank: true
 

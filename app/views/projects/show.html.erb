@@ -1,3 +1,82 @@
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
+	<div class="bg-holder overlay parallax rounded" style="background: url(<%= asset_path 'banner.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}';data-rellax-percentage="1">
+	</div>
+  <!--/.bg-holder-->
+  <div class="container">
+    <div class="row">
+      <div class="col-9 pt-11 pb-5">
+          <div class="media-body pl-3">
+            <div class="overflow-hidden">
+              <h2 class="fs-4 text-white display-4 text-serif" data-zanim-xs='{"delay":0.6}' data-zanim-trigger="scroll"><span class="font-italic">Which project will you fund ?</span></h2>
+            </div>
+            <div class="overflow-hidden">
+              <h6 class="mb-0 text-white ls-2 text-uppercase" data-zanim-xs='{"delay":0.8}' data-zanim-trigger="scroll">Just pick one or more!</h6>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+
+</section>
+
+<section>
+
+  <div class="container">
+    <div class="row index-flex parallax" data-rellax-speed="4">
+			<% @project.each do |x| %>
+      <div class="col-lg-6">
+        <div class="py-9 h-100 position-relative">
+					<div>
+            <%= image_tag (x.uploads[0]), class: "img-fluid2" %>
+          </div>
+          <!--/.bg-holder-->
+        </div>
+      </div>
+      <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
+				<!--   progressbar a pluger!  -->
+				<div class="progress-line mr-4" data-options='{"progress":<%= rand(0..100) %>,"text":"Funding"}'></div>
+        <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= x.budget %></span><span class="fs-0"> €</span>
+        </div>
+        <a class="text-black" href="page-product-single.html">
+          <h3 class="mb-0"><a href=<%= project_path(x.id) %>> <%= x.title %> </a></h3>
+        </a>
+        <p class="lead text-sans-serif"><%= x.description %></p>
+        <ul class="list-unstyled mt-4">
+          <li>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><span class="font-weight-normal pl-1"><%= x.artist.first_name.capitalize %> <%= x.artist.last_name[0].capitalize %></span></h6>
+          </li>
+          <li>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= x.category %></span></h6>
+          </li>
+          <li>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= x.duration %></span></h6>
+          </li>
+          <li>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= x.scope %></span></h6>
+          </li>
+          <li>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= x.show_fav_place %></span></h6>
+          </li>
+          <li>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= x.innovative %></span></h6>
+          </li>
+        </ul>
+        <a class="btn btn-dark btn-sm px-7 mt-4" href="<%= project_path(x.id) %>">Fund this project</a>
+      </div>
+		<% end %>
+  </div>
+</div>
+  <!-- end of .container-->
+
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
+
+
+
 <h2>Project informations</h2>
 
 
@@ -6,11 +85,11 @@
 <!-- Loop on files that have been uploaded by artist -->
 <% @project.uploads.each do |upload| %>
 	<% if upload.variable? %>
-		<%= link_to image_tag(upload.variant(resize: '400x400')), upload %>
+		<%= link_to image_tag(upload), upload, width:'100' %>
 	<% elsif upload.previewable? %>
-		<%= link_to image_tag(upload.preview(resize: '400x400')), rails_blob_path(upload, disposition: :attachment) %>
+		<%= link_to image_tag(upload.preview), rails_blob_path(upload, disposition: :attachment), :class=> 'preview_uploads' %>
 	<% elsif upload.image? %>
-		<%= link_to image_tag(upload, width: 400), upload %>
+		<%= link_to image_tag(upload, width: 400), upload,:class=> 'preview_uploads' %>
 	<% else %>
 		<%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
 	<% end %>
