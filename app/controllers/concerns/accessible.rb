@@ -9,11 +9,11 @@ module Accessible
     if current_mecene
       flash.clear
       # if you have rails_admin. You can redirect anywhere really
-      redirect_to(mecene_path) && return
+      redirect_to(mecene_path(current_mecene.id)) && return
     elsif current_artist
       flash.clear
       # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
-      redirect_to(artist_path) && return
+      redirect_to(artist_path(current_artist.id)) && return
     # elsif current_admin
     #   flash.clear
     #   # if you have rails_admin. You can redirect anywhere really
