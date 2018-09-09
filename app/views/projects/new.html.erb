@@ -11,6 +11,20 @@
         <hr class="hr-short mt-5 border-300" />
       </div>
     </div>
+    
+    <% if Project.where(artist: current_artist).count > 0 %>
+
+      <% if Project.where(artist: current_artist).last.validated == false %>
+        <p>Votre dernier projet est en attente de validation</p>
+      <% elsif Project.where(artist: current_artist).last.funding < Project.where(artist: current_artist).last.budget %>
+        <p>Votre dernier projet doit être financé.</p>
+      <% elsif Project.where(artist: current_artist).last.duration > Time.now %>
+        <p>Votre dernier projet doit être terminé.</p>
+      <% end %>
+
+    <% else %>
+
+
     <%= form_for(:project, url: projects_path, html: { method: :create}) do |f| %>
 
     <div class="row">
@@ -146,40 +160,10 @@
 
   <!-- end of .container-->
 
+  <% end %> 
+
+  <!-- end of project validations -->
+
 </section>
 <!-- <section> close ============================-->
 <!-- ==================================-->
-<h2>Submit your project down below</h2><br/>
-<%= form_for(:project, url: projects_path, html: { method: :create }) do |f| %>
-	<%= f.label :title, 'Title' %> <br>
-	<%= f.text_field :title %> <br/>
-
-	<%= f.label :description, 'Description' %> <br>
-	<%= f.text_field :description %> <br/>
-
-    <%= f.label :uploads %><br />
-    <%= f.file_field :uploads, multiple: true %>
-
-	<%= f.label :category, 'Art category' %> <br/>
-	<%= f.text_field :category %> <br/>
-
-	<%= f.label :duration, 'How long ?' %> <br/>
-	<%= f.date_field :duration %> <br/>
-
-	<%= f.label :budget, 'How much ?' %> <br/>
-	<%= f.text_field :budget %> <br/>
-
-	<%= f.label :funding, 'How much ?' %> <br/>
-	<%= f.text_field :funding %> <br/>
-
-	<%= f.label :show_fav_place, 'Where ?' %> <br/>
-	<%= f.text_field :show_fav_place %> <br/>
-
-	<%= f.label :scope, 'Scope ?' %> <br/>
-	<%= f.text_field :scope %> <br/>
-
-	<%= f.label :innovative, 'Innovative ?' %> <br/>
-	<%= f.text_field :innovative %> <br/> <br/>
-
-	<%= f.submit "Submit" %>
-<% end %>
