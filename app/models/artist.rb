@@ -2,6 +2,7 @@ class Artist < ApplicationRecord
 	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
 	has_many :projects
+	has_one_attached :avatar
 
 	validates :email, presence: true, uniqueness: { case_sensitive: false }
 	validates_format_of :email, :with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i

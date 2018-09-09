@@ -13,8 +13,8 @@ class Artists::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
-     session["#{resource_name}_return_to"] = edit_artist_registration_path
-     super
+    session["#{resource_name}_return_to"] = edit_artist_registration_path
+    super
    end
 
   # GET /resource/edit
@@ -23,9 +23,12 @@ class Artists::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    # binding.pry
+    @artist.avatar.purge
+    @artist.avatar.attach(params.require(:artist)[:avatar])
+  end
 
   # DELETE /resource
   # def destroy
