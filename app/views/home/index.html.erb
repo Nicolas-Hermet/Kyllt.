@@ -7,7 +7,7 @@
             <div class="mecenes-left">
               <% if mecene_signed_in? %>
                 <div class="project-link-index">
-                  <h3><%= link_to "Projects", project_path %></h3>
+                  <h3><%= link_to "Projets", project_path %></h3>
                 </div>
               <% end %>
               <h2 data-rellax-speed="8" class="parallax"><span class="white-mecene">Mécène</span></h2>
@@ -16,16 +16,16 @@
                 <!-- ##################### -->
 
 
-                <h2><%= link_to 'PROFILE PAGE', mecene_path(current_mecene.id) %></h2>
+                <h2><%= link_to 'Votre page profile', mecene_path(current_mecene.id) %></h2>
 
               
                 <!-- ##################### -->
-                	<li><%= link_to "Sign out", destroy_mecene_session_path, method: :delete, class: "white-mecene", class:"li-signup" %></li>
-                	<li class="login-mail">You're logged with the following email : <%= current_mecene.email %>.</li>
-                	<li><%= link_to "Edit account", edit_mecene_registration_path, class: "white-mecene", class:"li-signup" %></li>
+                	<li><%= link_to "Se déconnecter", destroy_mecene_session_path, method: :delete, class: "white-mecene", class:"li-signup" %></li>
+                	<li class="login-mail">Vous êtes connecté avec : <%= current_mecene.email %>.</li>
+                	<li><%= link_to "Editez votre compte", edit_mecene_registration_path, class: "white-mecene", class:"li-signup" %></li>
                 	<% else %>
-                	<li><%= link_to "Log in", new_mecene_session_path, class: "white-mecene", class:"li-signup" %></li>
-                	<li><%= link_to "Sign up", new_mecene_registration_path, class: "white-mecene", class:"li-signup" %></li>
+                	<li><%= link_to "Se connecter", new_mecene_session_path, class: "white-mecene", class:"li-signup" %></li>
+                	<li><%= link_to "S'inscrire", new_mecene_registration_path, class: "white-mecene", class:"li-signup" %></li>
                 	<% end %>
               </div>
           </div>
@@ -38,7 +38,7 @@
             <div class="artists-right">
               <% if artist_signed_in? %>
                 <div class="project-link-index">
-                  <h3><%= link_to "Projects", projects_path %></h3>
+                  <h3><%= link_to "Projets", projects_path %></h3>
                 </div>
               <% end %>
               <h2 data-rellax-speed="8" class="parallax"><span class="black-artist">Artiste</span></h2>
@@ -47,16 +47,16 @@
                 <!-- ##################### -->
 
 
-                <h2><%= link_to 'PROFILE PAGE', artist_path(current_artist.id) %></h2>
+                <h2><%= link_to 'Votre page profile', artist_path(current_artist.id) %></h2>
 
               
                 <!-- ##################### -->
-                  <li> <%= link_to 'Sign out', destroy_artist_session_path, method: :delete, class: "black-artist", class:"li-signup" %> </li>
-                  <li class="login-mail">You're logged with the following email : <%= current_artist.email %>.</li>
-                  <li> <%= link_to 'Edit account', edit_artist_registration_path, class: "black-artist", class:"li-signup" %> </li>
+                  <li> <%= link_to 'Se déconnecter', destroy_artist_session_path, method: :delete, class: "black-artist", class:"li-signup" %> </li>
+                  <li class="login-mail">Vous êtes connecté avec : <%= current_artist.email %>.</li>
+                  <li> <%= link_to 'Éditez votre compte', edit_artist_registration_path, class: "black-artist", class:"li-signup" %> </li>
                 <% else %>
-                  <li> <%= link_to 'Log in', new_artist_session_path, class: "black-artist", class:"li-signup" %> </li>
-                  <li> <%= link_to 'Sign up', new_artist_registration_path, class: "black-artist", class:"li-signup" %> </li>
+                  <li> <%= link_to 'Se connecter', new_artist_session_path, class: "black-artist", class:"li-signup" %> </li>
+                  <li> <%= link_to "S'inscrire", new_artist_registration_path, class: "black-artist", class:"li-signup" %> </li>
                 <% end %>
               </ul>
             </div>
