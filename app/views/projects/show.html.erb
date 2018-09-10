@@ -9,10 +9,10 @@
       <div class="col-9 pt-11 pb-5">
           <div class="media-body pl-3">
             <div class="overflow-hidden">
-              <h2 class="fs-4 text-white display-4 text-serif" data-zanim-xs='{"delay":0.6}' data-zanim-trigger="scroll"><span class="font-italic">Which project will you fund ?</span></h2>
+              <h2 class="fs-4 text-white display-4 text-serif" data-zanim-xs='{"delay":0.6}' data-zanim-trigger="scroll"><span class="font-italic">Quel projet allez-vous financer ?</span></h2>
             </div>
             <div class="overflow-hidden">
-              <h6 class="mb-0 text-white ls-2 text-uppercase" data-zanim-xs='{"delay":0.8}' data-zanim-trigger="scroll">Just pick one or more!</h6>
+              <h6 class="mb-0 text-white ls-2 text-uppercase" data-zanim-xs='{"delay":0.8}' data-zanim-trigger="scroll">Choisissez en ou même plusieurs !</h6>
             </div>
           </div>
       </div>
@@ -31,7 +31,7 @@
           <div class="row" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
             <div class="col">
               <div class="owl-carousel owl-theme owl-theme-vertical-1 owl-dots-inner owl-theme-white" data-options='{"items":1,"autoplay":false,"loop":true,"animateOut":"fadeOut","nav":true,"margin":30}'>
-                <% @project.uploads.each do |upload| %>
+								<% @project.uploads.each do |upload| %>
                 	<% if upload.variable? %>
                 		<%= link_to image_tag(upload), upload, :class=> 'preview_uploads' %>
                 	<% elsif upload.previewable? %>
@@ -68,32 +68,32 @@
               </p>
               </div>
               <div>
-              <p class="lead text-sans-serif">   <%= @project.description %></p>
+              <p class="lead text-sans-serif"><%= @project.description %></p>
               </div>
               <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><br/>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artiste :</span><br/>
                 </div>
                 <div>
                   <span class="font-weight-normal pl-1"><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></span></h6>
                   </div>
                   <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><br/>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Categorie :</span><br/>
                   <span class="font-weight-normal pl-1"><%= @project.category %></span></h6>
                   </div>
                   <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><br/>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Échéance du projet :</span><br/>
                   <span class="font-weight-normal pl-1"><%= @project.duration %></span></h6>
                   </div>
                   <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><br/>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Portée :</span><br/>
                   <span class="font-weight-normal pl-1"><%= @project.scope %></span></h6>
                   </div>
                   <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><br/>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Lieu de création :</span><br/>
                   <span class="font-weight-normal pl-1"><%= @project.show_fav_place %></span></h6>
                   </div>
                   <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><br/>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><br/>
                   <span class="font-weight-normal pl-1"><%= @project.innovative %></span></h6>
                   </div>
               </div>
@@ -117,7 +117,6 @@
   </div>
 </div>
   <!-- end of .container-->
-
 </section>
 <!-- <section> close ============================-->
 <!-- ============================================-->

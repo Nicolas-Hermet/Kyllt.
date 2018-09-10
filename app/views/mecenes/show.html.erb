@@ -1,15 +1,44 @@
-<h2> Welcome to your profile page <%= current_mecene.first_name %> <%= current_mecene.last_name %></h2> <br/>
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
+  <div class="bg-holder bg-holder-2" style="background: url(<%= asset_path 'banner.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'>
+    </div>
+  <!--/.bg-holder-->
+    <div class="container">
+      <div class="row justify-content-center text-center py-7">
+        <div class="col-lg-9 px-4">
+          <h3 class="fs-2 fs-sm-3 text-white text-profile">Welcome<br/>
+          </br/><%= current_mecene.first_name %> <%= current_mecene.last_name %></h3>
+          <br/>
+      </div>
+    </div>
+  </div>
+<!-- end of .container-->
+</section>
+<!-- ============================================-->
 
-<p></p>
-<% if current_mecene.avatar.attached? %>
-	
-    <%= link_to image_tag current_mecene.avatar %>
-<% else %>
-	<%= link_to 'Ajouter votre photo de profil', edit_mecene_registration_path %>
-<% end %>
 
-<p>You're currently logged with the following email : <%= current_mecene.email %></p> <br/>
+<!-- begin profile pic-->
+<div class="col-12 mt-6">
+  <div class="bg-light p-5 rounded profile-flex">
+    <div class="row no-gutters justify-content-right text-center text-sm-left">
+      <div class="col-sm profile-flex">
+        <%= image_tag("profile.jpg", class: "square-profile img-fluid", width: '200') %><br/></br/>
 
-<p>You can edit your profil by clicking : <%= link_to 'Here', edit_mecene_registration_path %></p> <br/>
-
-<p>You can see all the projects here : <%= link_to 'Here', projects_path %></p> <br/> 
+        <h5><%= current_mecene.first_name.capitalize %> <%= current_mecene.last_name[0].capitalize %></h5><br/>
+        <div class="lead text-400 px-lg-6"><%= link_to 'Modifier le profil', edit_mecene_registration_path, class:"btn btn-dark btn-sm px-7 mt-4" %></div>
+        <div class="lead text-400 px-lg-6"><%= link_to 'Voir les projets', projects_path, class:"btn btn-danger btn-sm px-7 mt-4" %></div><br/></br/>
+        <div class="mecene-pref">
+          <h5>Préferences :</h5>
+          <p><strong>Budget minimum à investir : </strong><br/><%= current_mecene.min_budget %></p>
+          <p><strong>Durée avant retour sur investissement : </strong><br/><%= current_mecene.max_return_invest %></p>
+          <p><strong>Arts favoris : </strong><br/><%= current_mecene.art_category %></p>
+          <p><strong>Localisation des artistes : </strong><br/><%= current_mecene.locality %></p><br/>
+        </br/>
+        </div>
+        <p class="lead font-italic text-400 px-lg-7">You're currently logged with the following email : <%= current_mecene.email %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of profile pic-->

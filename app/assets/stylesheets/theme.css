@@ -14397,7 +14397,7 @@ a.white-mecene:hover{
 .black-artist{
   color: white;
 }
-.li-signup{
+a.li-signup{
   font-size: 1.3rem;
   color: white;
   font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -14480,7 +14480,6 @@ ul {
 
 .img-fluid2 {
   max-width: 400px;
-
   height: auto;
 }
 
@@ -14518,4 +14517,16 @@ ul {
 .rounded-circle{
   margin-left: 5vw;
   box-shadow: 5px 5px 20px grey;
+}
+
+.profile-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.square-profile{
+  display: flex;
+  justify-content: center;
 }
