@@ -14480,7 +14480,6 @@ ul {
 
 .img-fluid2 {
   max-width: 400px;
-
   height: auto;
 }
 
@@ -14525,4 +14524,9 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.square-profile{
+  display: flex;
+  justify-content: center;
 }

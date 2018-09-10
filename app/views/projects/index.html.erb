@@ -27,11 +27,11 @@
       <% @project.each do |project| %>
       <div class="col-lg-6">
         <div class="py-9 h-100 position-relative">
-					<div>
+					<div class="ruby-code">
             <% if project.uploads.attached? %>
                 <% project.uploads.each do |upload| %>
                   <% if upload.variable? %>
-                    <%= link_to image_tag(upload), upload, :class=> 'preview_uploads' %>
+                    <%= link_to image_tag(upload, width: 400), upload, :class=> 'preview_uploads' %>
                     <% break %>
                   <% elsif upload.previewable? %>
                     <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2" %>
@@ -43,7 +43,7 @@
                     <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2"%>
                   <% end %>
                 <% end %>
-            <% else %>
+          	<% else %>
               <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2"%>
             <% end %>
           </div>
@@ -52,12 +52,13 @@
       </div>
       <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
 				<!--   progressbar a pluger!  -->
-				<div class="progress-line mr-4" data-options='{"progress":<%= rand(0..100) %>,"text":"Funding"}'></div>
+				<div class="progress-line mr-4" data-options='{"progress":<%= rand(0..100) %>,"text":"Financement"}'>
+				</div>
         <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= project.budget %></span><span class="fs-0"> €</span>
         </div>
-        <a class="text-black" href="page-product-single.html">
-          <h3 class="mb-0"><a href=<%= project_path(project.id) %>> <%= project.title %> </a></h3>
-        </a>
+
+          <h3 class="mb-0"><%= link_to project.title, project_path(project.id)%></h3>
+
         <p class="lead text-sans-serif"><%= project.description %></p>
         <ul class="list-unstyled mt-4">
           <li>
@@ -79,7 +80,7 @@
             <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= project.innovative %></span></h6>
           </li>
         </ul>
-        <a class="btn btn-dark btn-sm px-7 mt-4" href="<%= project_path(project.id) %>">Fund this project</a>
+				<%= link_to 'Financer ce projet!', project_path(project.id), class:'btn btn-dark btn-sm px-7 mt-4' %>
       </div>
 		<% end %>
   </div>
