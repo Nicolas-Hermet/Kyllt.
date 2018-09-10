@@ -26,11 +26,26 @@
 
   <div class="container">
     <div class="row index-flex parallax" data-rellax-speed="4">
-			<% @project.each do |x| %>
+      <% @project.each do |project| %>
       <div class="col-lg-6">
         <div class="py-9 h-100 position-relative">
 					<div>
-            <%= image_tag (x.uploads[0]), class: "img-fluid2" %>
+            <% if project.uploads.attached? %>
+                <% project.uploads.each do |upload| %>
+                  <% if upload.variable? %>
+                    <%= link_to image_tag(upload), upload, :class=> 'preview_uploads' %>
+                    <% break %>
+                  <% elsif upload.previewable? %>
+                    <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2" %>
+                    <% break %>
+                  <% elsif upload.image? %>
+                    <%= link_to image_tag(upload, width: 400), upload,:class=> 'preview_uploads' %>
+                    <% break %>
+                  <% else %>
+                    <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2"%>
+                  <% end %>
+                <% end %>
+            <% end %>
           </div>
           <!--/.bg-holder-->
         </div>
@@ -38,33 +53,33 @@
       <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
 				<!--   progressbar a pluger!  -->
 				<div class="progress-line mr-4" data-options='{"progress":<%= rand(0..100) %>,"text":"Funding"}'></div>
-        <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= x.budget %></span><span class="fs-0"> €</span>
+        <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= project.budget %></span><span class="fs-0"> €</span>
         </div>
         <a class="text-black" href="page-product-single.html">
-          <h3 class="mb-0"><a href=<%= project_path(x.id) %>> <%= x.title %> </a></h3>
+          <h3 class="mb-0"><a href=<%= project_path(project.id) %>> <%= project.title %> </a></h3>
         </a>
-        <p class="lead text-sans-serif"><%= x.description %></p>
+        <p class="lead text-sans-serif"><%= project.description %></p>
         <ul class="list-unstyled mt-4">
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><span class="font-weight-normal pl-1"><%= x.artist.first_name.capitalize %> <%= x.artist.last_name[0].capitalize %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><span class="font-weight-normal pl-1"><%= project.artist.first_name.capitalize %> <%= project.artist.last_name[0].capitalize %></span></h6>
           </li>
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= x.category %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= project.category %></span></h6>
           </li>
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= x.duration %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= project.duration %></span></h6>
           </li>
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= x.scope %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= project.scope %></span></h6>
           </li>
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= x.show_fav_place %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= project.show_fav_place %></span></h6>
           </li>
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= x.innovative %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= project.innovative %></span></h6>
           </li>
         </ul>
-        <a class="btn btn-dark btn-sm px-7 mt-4" href="<%= project_path(x.id) %>">Fund this project</a>
+        <a class="btn btn-dark btn-sm px-7 mt-4" href="<%= project_path(project.id) %>">Fund this project</a>
       </div>
 		<% end %>
   </div>
