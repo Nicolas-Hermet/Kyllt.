@@ -121,7 +121,9 @@
             <div class="py-9 h-100 position-relative">
     					<div>
                 <% if !@project.nil? %>
-                  <%= image_tag (@project.uploads[0]), class: "img-fluid2" %>
+                  <% if @project.uploads.attached? %>
+                    <%= image_tag (@project.uploads[0]), class: "img-fluid2" %>
+                  <% end %>
                 <% end %>
               </div>
               <!--/.bg-holder-->
