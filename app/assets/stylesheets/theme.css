@@ -14519,3 +14519,10 @@ ul {
   margin-left: 5vw;
   box-shadow: 5px 5px 20px grey;
 }
+
+.profile-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
