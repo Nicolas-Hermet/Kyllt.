@@ -55,7 +55,7 @@
         </div>
         <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
   				<!--   progressbar a pluger!  -->
-  				<div class="progress-line mr-4" data-options='{"progress":<%= rand(0..100) %>,"text":"Funding"}'></div>
+  				<div class="progress-line mr-4" data-options='{"progress":<%= project.funding*100/project.budget %>,"text":"Funding"}'></div>
           <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= project.budget %></span><span class="fs-0"> €</span>
           </div>
           <a class="text-black" href="page-product-single.html">

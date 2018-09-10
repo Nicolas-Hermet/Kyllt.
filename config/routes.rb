@@ -18,4 +18,7 @@ Rails.application.routes.draw do
 	get '/artists/:id', to: "artists#show"
 	get '/mecenes/:id', to: "mecenes#show"
 
+	# Funding
+	post '/buffer/:id', to:'buffers#fund', as: 'fund_this_project'
+
 end
