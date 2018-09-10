@@ -13,10 +13,7 @@
     </div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
-    
-    <%= f.label :avatar %><br>
-    <%= f.file_field :avatar %> <br>
-    
+
 
     <div class="row">
       <div class="col-12 pl-lg-7">
@@ -32,6 +29,8 @@
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-300 bg-light", placeholder:"Email" %>
                 <%= f.text_field :first_name, class:"form-control border-300 bg-light", placeholder:"First name" %>
                 <%= f.text_field :last_name, class:"form-control border-300 bg-light", placeholder:"Last name" %></p>
+                <label class="btn btn-danger">Photo de profil<span style="display:none;">
+                  <%= f.file_field :avatar, name: 'picture' %></span></label></p>
             </div>
           </div>
         </div>
@@ -46,7 +45,7 @@
                 What is the minimum amount of money, you want to invest ? For obvious reasons, the minimum investment is 100€.<br/>
                 How long are you able to wait for your investment to be profitable ? <br/> <br/> <br/><br/>
               <%= f.text_field :min_budget, class:"form-control border-300 bg-light", placeholder:"How much ?" %>
-              <%= f.text_field :max_return_invest, class:"form-control border-300 bg-light", placeholder:"How long ?" %></p>
+              <%= f.date_field :max_return_invest, class:"form-control border-300 bg-light", placeholder:"How long ?" %></p>
             </div>
           </div>
         </div>

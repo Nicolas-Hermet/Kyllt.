@@ -11,7 +11,7 @@
         <hr class="hr-short mt-5 border-300" />
       </div>
     </div>
-    
+
     <% if Project.where(artist: current_artist).count > 0 %>
 
       <% if Project.where(artist: current_artist).last.validated == false %>
@@ -21,146 +21,142 @@
       <% elsif Project.where(artist: current_artist).last.duration > Time.now %>
         <p>Votre dernier projet doit être terminé.</p>
       <% end %>
-
     <% else %>
-
-
     <%= form_for(:project, url: projects_path, html: { method: :create}) do |f| %>
 
-    <div class="row">
-      <div class="col-12 pl-lg-7">
-
-        <div class="row align-items-end">
-          <div class="col-lg-6 order-lg-2 text-center parallax test-img-right" data-rellax-speed="5.5">
-            <%= image_tag("betheplace.jpg", class: "img-fluid-right", width: '400') %>
-          </div>
-          <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
-            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
-              <h3>Your project title.</h3>
-              <p>What name do you want your project to have ? <br/> <br/> <br/> <br/>
-                <%= f.text_field :title, class:"form-control border-300 bg-light", placeholder:"Title" %></p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="4">
-            <%= image_tag("open.jpg", class: "img-fluid-left", width: '400') %>
-          </div>
-          <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
-            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
-              <h3>Project explanations.</h3>
-              <p>Explain your project the best you can, the more details, the better. <br/> <br/> <br/><br/>
-              	<%= f.text_field :description, class:"form-control border-300 bg-light", placeholder:"Explanation"  %></p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="2">
-            <%= image_tag("connected.jpg", class: "img-fluid-right", width: '400') %>
-          </div>
-          <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
-            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
-              <h3>Files upload.</h3>
-              <p>You can upload here some photographs, some videos... Invite your funder in your project.<br/> <br/> <br/> <br/>
-              <%= f.file_field :uploads, multiple: true, class: 'form-control', class:"form-control border-300 bg-light" %></p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="2">
-            <%= image_tag("arrow.jpg", class: "img-fluid-left", width: '400') %>
-          </div>
-          <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
-            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
-              <h3>How long do you need to make it ?</h3>
-              <p>Give us a deadline before which your project will be done.<br/> <br/> <br/> <br/>
-              <%= f.date_field :duration, class:"form-control border-300 bg-light", placeholder:"1 month ? 2 years ?" %></p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="1.5">
-            <%= image_tag("hatenothing.jpg", class: "img-fluid-right", width: '400') %>
-          </div>
-          <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
-            <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
-              <h3>What's your kind of art ?</h3>
-              <p>Is your project about painting ? Photography ? Sculpture ? ...<br/> <br/> <br/> <br/>
-              <%= f.text_field :category, class:"form-control border-300 bg-light", placeholder:"Paintings ?... Photography ?" %></p>
-            </div>
-          </div>
-        </div>
-        <div class="row overflow-hidden pb-1">
-          <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="0.5">
-            <%= image_tag("kiss.jpg", class: "img-fluid-left", width: '400') %>
-          </div>
-          <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
-            <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
-              <h3>How much do you need ?.</h3>
-              <p>Tell your funders how much do you need to complete your entire project.<br/> <br/> <br/> <br/>
-								<%= f.text_field :budget, class:"form-control border-300 bg-light", placeholder:"How much ?" %></p>
-            	</p>
-            </div>
-          </div>
-        </div>
-				<div class="row">
-					<div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="0.5">
-						<%= image_tag("hatenothing.jpg", class: "img-fluid-right", width: '400') %>
-					</div>
-					<div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
-						<div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">07</span>
-							<h3>Scope of your project.</h3>
-							<p>Let us know what is about to be targeted by your project, explain why and how.<br/> <br/> <br/> <br/>
-							<%= f.text_field :scope, class:"form-control border-300 bg-light", placeholder:"What is the scope ?" %></p>
-						</div>
-					</div>
-				</div>
-				<div class="row overflow-hidden pb-1">
-          <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="0.5">
-            <%= image_tag("kiss.jpg", class: "img-fluid-left", width: '400') %>
-          </div>
-          <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
-            <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">08</span>
-              <h3>Location.</h3>
-              <p>If you had the possibility, where would you want to make your project ?<br/> <br/> <br/> <br/>
-								<%= f.text_field :show_fav_place, class:"form-control border-300 bg-light", placeholder:"What's your dream workplace ?" %></p>
-            	</p>
-            </div>
-          </div>
-        </div>
-				<div class="row">
-					<div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="0.5">
-						<%= image_tag("thanks.jpg", class: "img-fluid-right", width: '400') %>
-					</div>
-					<div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
-						<div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">09</span>
-							<h3>Is your project into innovations ?</h3>
-							<p>Want to change your password ? The email you linked to your account ?<br/> <br/> <br/> <br/>
-								<%= f.text_field :innovative, class:"form-control border-300 bg-light", placeholder:"Is it innovative ?" %></p>
-						</div>
-					</div>
-				</div>
-          <div class="submitbtn">
-            <div class="row mb-4 align-items-center">
-                <%= f.submit "Submit your project", class:"btn btn-danger btn-block" %>
-                <% end %>
-                </div>
-              </div>
-              <div class="row mb-4 align-items-center delete-account">
-                <br/> <br/> <br/>
-                <h3>You want to leave us ?</h3>
-                <br/> <br/> <br/>
-
-                <br/> <br/> <br/>
-              <%= link_to "Back", :back %>
-              </div>
-          </div>
+<div class="row">
+  <div class="col-12 pl-lg-7">
+    <div class="row align-items-end">
+      <div class="col-lg-6 order-lg-2 text-center parallax test-img-right" data-rellax-speed="5.5">
+        <%= image_tag("betheplace.jpg", class: "img-fluid-right", width: '400') %>
+      </div>
+      <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+        <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
+          <h3>Your project title.</h3>
+          <p>What name do you want your project to have ? <br/> <br/> <br/> <br/>
+            <%= f.text_field :title, class:"form-control border-300 bg-light", placeholder:"Title" %></p>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="4">
+        <%= image_tag("open.jpg", class: "img-fluid-left", width: '400') %>
+      </div>
+      <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
+        <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
+          <h3>Project explanations.</h3>
+          <p>Explain your project the best you can, the more details, the better. <br/> <br/> <br/><br/>
+          	<%= f.text_field :description, class:"form-control border-300 bg-light", placeholder:"Explanation"  %></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="2">
+        <%= image_tag("connected.jpg", class: "img-fluid-right", width: '400') %>
+      </div>
+      <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+        <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
+          <h3>Files upload.</h3>
+          <p>You can upload here some photographs, some videos... Invite your funder in your project.<br/> <br/> <br/> <br/>
+          <%= f.file_field :uploads, multiple: true, class: 'form-control', class:"form-control border-300 bg-light" %></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 border-lg-right border-lg-bottom border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="2">
+        <%= image_tag("arrow.jpg", class: "img-fluid-left", width: '400') %>
+      </div>
+      <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
+        <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
+          <h3>How long do you need to make it ?</h3>
+          <p>Give us a deadline before which your project will be done.<br/> <br/> <br/> <br/>
+          <%= f.date_field :duration, class:"form-control border-300 bg-light", placeholder:"1 month ? 2 years ?" %></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="1.5">
+        <%= image_tag("hatenothing.jpg", class: "img-fluid-right", width: '400') %>
+      </div>
+      <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+        <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
+          <h3>What's your kind of art ?</h3>
+          <p>Is your project about painting ? Photography ? Sculpture ? ...<br/> <br/> <br/> <br/>
+          <%= f.text_field :category, class:"form-control border-300 bg-light", placeholder:"Paintings ?... Photography ?" %></p>
+        </div>
+      </div>
+    </div>
+    <div class="row overflow-hidden pb-1">
+      <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="0.5">
+        <%= image_tag("kiss.jpg", class: "img-fluid-left", width: '400') %>
+      </div>
+      <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
+        <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
+          <h3>How much do you need ?.</h3>
+          <p>Tell your funders how much do you need to complete your entire project.<br/> <br/> <br/> <br/>
+						<%= f.text_field :budget, class:"form-control border-300 bg-light", placeholder:"How much ?" %></p>
+        	</p>
+        </div>
+      </div>
+    </div>
+		<div class="row">
+			<div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="0.5">
+				<%= image_tag("hatenothing.jpg", class: "img-fluid-right", width: '400') %>
+			</div>
+			<div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+				<div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">07</span>
+					<h3>Scope of your project.</h3>
+					<p>Let us know what is about to be targeted by your project, explain why and how.<br/> <br/> <br/> <br/>
+					<%= f.text_field :scope, class:"form-control border-300 bg-light", placeholder:"What is the scope ?" %></p>
+				</div>
+			</div>
+		</div>
+		<div class="row overflow-hidden pb-1">
+      <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8 parallax test-img-left" data-rellax-speed="0.5">
+        <%= image_tag("kiss.jpg", class: "img-fluid-left", width: '400') %>
+      </div>
+      <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
+        <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">08</span>
+          <h3>Location.</h3>
+          <p>If you had the possibility, where would you want to make your project ?<br/> <br/> <br/> <br/>
+						<%= f.text_field :show_fav_place, class:"form-control border-300 bg-light", placeholder:"What's your dream workplace ?" %></p>
+        	</p>
+        </div>
+      </div>
+    </div>
+		<div class="row">
+			<div class="col-lg-6 order-lg-2 text-center align-self-center parallax test-img-right" data-rellax-speed="0.5">
+				<%= image_tag("thanks.jpg", class: "img-fluid-right", width: '400') %>
+			</div>
+			<div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+				<div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">09</span>
+					<h3>Is your project into innovations ?</h3>
+					<p>Want to change your password ? The email you linked to your account ?<br/> <br/> <br/> <br/>
+						<%= f.text_field :innovative, class:"form-control border-300 bg-light", placeholder:"Is it innovative ?" %></p>
+				</div>
+			</div>
+		</div>
+      <div class="submitbtn">
+        <div class="row mb-4 align-items-center">
+            <%= f.submit "Submit your project", class:"btn btn-danger btn-block" %>
+            <% end %>
+            </div>
+          </div>
+          <div class="row mb-4 align-items-center delete-account">
+            <br/> <br/> <br/>
+            <h3>You want to leave us ?</h3>
+            <br/> <br/> <br/>
+
+            <br/> <br/> <br/>
+          <%= link_to "Back", :back %>
+          </div>
+      </div>
+    </div>
+  </div>
 
   <!-- end of .container-->
 
-  <% end %> 
+  <% end %>
 
   <!-- end of project validations -->
 
