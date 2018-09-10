@@ -31,7 +31,7 @@
           <div class="row" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
             <div class="col">
               <div class="owl-carousel owl-theme owl-theme-vertical-1 owl-dots-inner owl-theme-white" data-options='{"items":1,"autoplay":false,"loop":true,"animateOut":"fadeOut","nav":true,"margin":30}'>
-                <% @project.uploads.each do |upload| %>
+								<% @project.uploads.each do |upload| %>
                 	<% if upload.variable? %>
                 		<%= link_to image_tag(upload), upload, :class=> 'preview_uploads' %>
                 	<% elsif upload.previewable? %>
@@ -68,7 +68,7 @@
               </p>
               </div>
               <div>
-              <p class="lead text-sans-serif">   <%= @project.description %></p>
+              <p class="lead text-sans-serif"><%= @project.description %></p>
               </div>
               <div>
                 <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><br/>
@@ -103,7 +103,6 @@
   </div>
 </div>
   <!-- end of .container-->
-
 </section>
 <!-- <section> close ============================-->
 <!-- ============================================-->
