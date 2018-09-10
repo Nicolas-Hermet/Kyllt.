@@ -40,13 +40,15 @@
       <div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3 align-self-center pr-sm-3 pb-3 pb-sm-0">
         <%= image_tag("profile.jpg", class: " rounded-circle img-fluid img-fluid", width: '200') %>
       </div>
-      <div class="col-sm">
-        <h5><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></h5>
-        <p class="text-sans-serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <br />
-        <p class="lead font-italic text-400 px-lg-7">You're currently logged with the following email : <%= current_artist.email %></p>
-        <%= link_to 'Modifier le profil', edit_artist_registration_path, class:"btn btn-dark btn-sm px-7 mt-4" %>
-      </div>
+      <% if !@project.nil? %>
+        <div class="col-sm">
+          <h5><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></h5>
+          <p class="text-sans-serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <br />
+          <p class="lead font-italic text-400 px-lg-7">You're currently logged with the following email : <%= current_artist.email %></p>
+          <%= link_to 'Modifier le profil', edit_artist_registration_path, class:"btn btn-dark btn-sm px-7 mt-4" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -62,8 +64,9 @@
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-lg-8">
-
-        <a class="btn btn-outline-dark rounded-capsule mt-4" href="#"><%= @project.title %></a>
+        <% if !@project.nil? %>
+          <a class="btn btn-outline-dark rounded-capsule mt-4" href="#"><%= @project.title %></a>
+        <% end %>
         <div class="col ml-auto text-sans-serif text-center"> <br>
         </div>
       </div>
@@ -94,7 +97,9 @@
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-lg-8">
-        <p class="px-lg-6 px-md-5"><%= @project.description %></p>
+        <% if !@project.nil? %>
+          <p class="px-lg-6 px-md-5"><%= @project.description %></p>
+        <% end %>
     </div>
   </div>
 </div>
@@ -115,16 +120,20 @@
           <div class="col-lg-6">
             <div class="py-9 h-100 position-relative">
     					<div>
-                <%= image_tag (@project.uploads[0]), class: "img-fluid2" %>
+                <% if !@project.nil? %>
+                  <% if @project.uploads.attached? %>
+                    <%= image_tag (@project.uploads[0]), class: "img-fluid2" %>
+                  <% end %>
+                <% end %>
               </div>
               <!--/.bg-holder-->
             </div>
           </div>
           <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
     				<!--   progressbar a pluger!  -->
-
-            <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= @project.budget %></span><span class="fs-0"> €</span>
-            </div>
+            <% if !@project.nil? %>
+              <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= @project.budget %></span><span class="fs-0"> €</span>
+              </div>
 
 
             <ul class="list-unstyled mt-4">
@@ -149,6 +158,7 @@
             </ul>
 
           </div>
+            <% end %>
       </div>
     </div>
       <!-- end of .container-->

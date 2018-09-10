@@ -7,9 +7,9 @@ class Artist < ApplicationRecord
 	validates :email, presence: true, uniqueness: { case_sensitive: false }
 	validates_format_of :email, :with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
-	validates :first_name, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "only allows letters" }
+	validates :first_name, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "composé de lettres uniquement." }
 
-	validates :last_name, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "only allows letters" }
+	validates :last_name, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "composé de lettres uniquement." }
 
 	validates :school, length: { maximum: 250 }, on: :create, allow_blank: true
 
@@ -27,5 +27,5 @@ class Artist < ApplicationRecord
 
 	validates :iban, length: { maximum: 33 }, on: :create, allow_blank: true
 
-	validates :gcs_read, acceptance: true
+	validates :gcs_read, acceptance: { message: 'doivent être acceptés.' }
 end
