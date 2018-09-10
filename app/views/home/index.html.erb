@@ -22,7 +22,7 @@
 
                 <h2><%= link_to 'Votre page profile', mecene_path(current_mecene.id) %></h2>
 
-              
+
                 <!-- ##################### -->
                 	<li><%= link_to "Se déconnecter", destroy_mecene_session_path, method: :delete, class: "white-mecene", class:"li-signup" %></li>
                 	<li class="login-mail">Vous êtes connecté avec : <%= current_mecene.email %>.</li>
@@ -53,7 +53,7 @@
 
                 <h2><%= link_to 'Votre page profile', artist_path(current_artist.id) %></h2>
 
-              
+
                 <!-- ##################### -->
                   <li> <%= link_to 'Se déconnecter', destroy_artist_session_path, method: :delete, class: "black-artist", class:"li-signup" %> </li>
                   <li class="login-mail">Vous êtes connecté avec : <%= current_artist.email %>.</li>
