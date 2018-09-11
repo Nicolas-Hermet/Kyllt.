@@ -33,11 +33,11 @@
               <ul data-rellax-speed="8" class="parallax">
                 <% if artist_signed_in? %>
                 <!-- ##################### -->
-                <h3 data-rellax-><%= link_to 'Soumettre un projet', projects_new_path %></h3>
-                <h3 data-rellax-><%= link_to 'Voir les projets', projects_path %></h3>
+                <h3><%= link_to 'Soumettre un projet', projects_new_path %></h3>
+                <h3><%= link_to 'Voir les projets', projects_path %></h3>
                 <!-- ##################### -->
                 <% else %>
-                <h2 data-rellax-speed="8" class="parallax black-artist">Artiste</h2>
+                <h2 data-rellax-speed="8" class="black-artist">Artiste</h2>
                   <li> <%= link_to 'Log in', new_artist_session_path, class: "black-artist li-signup" %> </li>
                   <li> <%= link_to 'Sign up', new_artist_registration_path, class: "black-artist li-signup" %> </li>
                 <% end %>
