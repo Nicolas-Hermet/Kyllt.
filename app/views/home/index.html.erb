@@ -6,12 +6,12 @@
           <div class="bg-holder" style="background: url(<%= asset_path '8.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'>
             <div class="mecenes-left">
               <% if mecene_signed_in? %>
-                <h2 data-rellax-speed="8" class="parallax white-mecene"><%= link_to 'Mécène', mecene_path(current_mecene.id) %></h2>
+                <h2 data-rellax-speed="8" class="parallax white-mecene"><%= link_to 'Mécène', mecene_path(current_mecene.id), class:"black-artist" %></h2>
                 <% end %>
                 <ul data-rellax-speed="8" class="parallax">
                 	<% if mecene_signed_in? %>
                   <!-- ##################### -->
-                  <h3><%= link_to 'Voir les projets', projects_path %></h3>
+                  <h3><%= link_to 'Voir les projets', projects_path, class:"white-mecene li-signup" %></h3>
                   <!-- ##################### -->
                 	<% else %>
                   <h2 class="white-mecene">Mécène</h2>
@@ -25,16 +25,16 @@
       </div>
       <div class="col-lg-6 bg-white py-6">
         <div class="row h-100 align-items-center justify-content-center">
-          <div class="bg-holder" style="background: url(<%= asset_path '8.1.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'>
+          <div class="bg-holder" style="background: url(<%= asset_path '8.1.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'>
             <div class="artists-right">
               <% if artist_signed_in? %>
-              <h2 data-rellax-speed="8" class="parallax black-artist"><%= link_to 'Artiste', artist_path(current_artist.id) %></h2>
+              <h2 data-rellax-speed="8" class="parallax black-artist"><%= link_to 'Artiste', artist_path(current_artist.id), class:"black-artist" %></h2>
               <% end %>
               <ul data-rellax-speed="8" class="parallax">
                 <% if artist_signed_in? %>
                 <!-- ##################### -->
-                <h3><%= link_to 'Soumettre un projet', projects_new_path %></h3>
-                <h3><%= link_to 'Voir les projets', projects_path %></h3>
+                <h3><%= link_to 'Soumettre un projet', projects_new_path, class:"black-artist li-signup" %></h3>
+                <h3><%= link_to 'Voir les projets', projects_path, class:"black-artist li-signup" %></h3>
                 <!-- ##################### -->
                 <% else %>
                 <h2 data-rellax-speed="8" class="black-artist">Artiste</h2>

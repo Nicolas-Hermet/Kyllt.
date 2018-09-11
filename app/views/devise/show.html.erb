@@ -21,12 +21,12 @@
 
 
 <!-- ============================================-->
-<section>
+<section class="margin-section">
 <!-- begin profile pic-->
 <div class="col-12 mt-6">
   <div class="bg-light p-5 rounded profile-flex">
     <div class="row no-gutters justify-content-right text-center text-sm-left">
-      <div class="col-sm profile-flex">
+      <div class="col-sm profile-flex"data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'>
         <%= image_tag("profile.jpg", class: "square-profile img-fluid", width: '200') %><br/></br/>
         <h5><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></h5><br/>
         <p class="text-sans-serif"><%= @project.artist.biography %></p>
