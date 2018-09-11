@@ -101,7 +101,7 @@
 
 <!-- Begin Fund Form -->
             <% if current_mecene %>
-              <%= form_for(:buffer, url: fund_this_project_path, method: :fund) do |f| %>
+              <%= form_for(:buffer, url: fund_this_project_path, method: :post) do |f| %>
                 <div class="row mb-4">
                   <div class="col">
                     <%= f.text_field :amount, class:"form-control border-300 bg-light", placeholder:"Somme à investir" %>
