@@ -100,7 +100,7 @@
           </div>
 
 <!-- Begin Fund Form -->
-            <%= form_for(:buffer, url: fund_this_project_path, html: { method: :fund}) do |f| %>
+            <%= form_for(:buffer, url: fund_this_project_path, method: :fund) do |f| %>
               <div class="row mb-4">
                 <div class="col">
                   <%= f.text_field :amount, class:"form-control border-300 bg-light", placeholder:"Somme à investir" %>
