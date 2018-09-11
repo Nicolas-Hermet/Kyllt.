@@ -131,7 +131,14 @@
 				<div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">09</span>
 					<h3>Innovant ?</h3>
 					<p>Votre projet est-il innovant? (Techniquement? Intellectuellement?... )<br/> <br/> <br/> <br/>
-						<%= f.text_field :innovative, class:"form-control border-300 bg-light", placeholder:"Est-ce innovant ?" %></p>
+
+            <%= f.label :innovative, "Oui", :value => true %>
+            <%= f.radio_button :innovative, true %>
+
+            <%= f.label :innovative, "Non", :value => false %>
+            <%= f.radio_button :innovative, false %>
+
+          </p>
 				</div>
 			</div>
 		</div>
