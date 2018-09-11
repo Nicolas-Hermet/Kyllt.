@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'google-cloud-storage'
 gem 'pry'
 gem 'mini_magick'
+gem 'stripe'
 #########################
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
