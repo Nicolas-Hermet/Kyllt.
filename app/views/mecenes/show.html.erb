@@ -23,8 +23,15 @@
   <div class="bg-light p-5 rounded profile-flex">
     <div class="row no-gutters justify-content-right text-center text-sm-left">
       <div class="col-sm profile-flex">
-        <%= image_tag("profile.jpg", class: "square-profile img-fluid", width: '200') %><br/></br/>
-
+        <% if current_mecene.avatar.attached? %>
+          <% if current_mecene.avatar.image? %>
+            <%= link_to image_tag(current_mecene.avatar, width: 200), current_mecene.avatar,:class=> 'square-profile img-fluid' %>
+          <% else %>
+            <%= image_tag("profile.jpg", class: "square-profile img-fluid", width: '200') %><br/></br/>
+          <% end %>
+        <% else %>
+          <%= image_tag("profile.jpg", class: "square-profile img-fluid", width: '200') %><br/></br/>
+        <% end %>
         <h5><%= current_mecene.first_name.capitalize %> <%= current_mecene.last_name[0].capitalize %></h5><br/>
         <div class="lead text-400 px-lg-6"><%= link_to 'Modifier le profil', edit_mecene_registration_path, class:"btn btn-dark btn-sm px-7 mt-4" %></div>
         <div class="lead text-400 px-lg-6"><%= link_to 'Voir les projets', projects_path, class:"btn btn-danger btn-sm px-7 mt-4" %></div><br/></br/>

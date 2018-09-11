@@ -26,7 +26,15 @@
   <div class="bg-light p-5 rounded profile-flex">
     <div class="row no-gutters justify-content-right text-center text-sm-left">
       <div class="col-sm profile-flex"data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'>
-        <%= image_tag("profile.jpg", class: "square-profile img-fluid", width: '200') %><br/></br/>
+        <% if current_artist.avatar.attached? %>
+          <% if current_artist.avatar.image? %>
+            <%= link_to image_tag(current_artist.avatar, width: 200), current_artist.avatar,:class=> 'square-profile img-fluid' %>
+          <% else %>
+            <%= image_tag("profile.jpg", class: "square-profile img-fluid", width: '200') %><br/></br/>
+          <% end %>
+        <% else %>
+          <%= image_tag("profile.jpg", class: "square-profile img-fluid", width: '200') %><br/></br/>
+        <% end %>
         <h5><%= current_artist.first_name.capitalize %> <%= current_artist.last_name[0].capitalize %></h5><br/>
         <p class="text-sans-serif"><% if !current_artist.biography.nil? %> <%= current_artist.biography %> <% end %></p>
         <p class="text-sans-serif"><% if !current_artist.previous_projects.nil? %><%= current_artist.previous_projects %> <% end %></p>
