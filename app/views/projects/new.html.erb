@@ -21,7 +21,7 @@
         <p>Votre dernier projet doit être terminé.</p>
       <% end %>
     <% else %>
-    <%= form_for(:project, url: projects_path, html: { method: :create}) do |f| %>
+    <%= form_for(:project, url: projects_path, html: { method: :post}) do |f| %>
 
 <div class="row">
   <div class="col-12 pl-lg-7">
