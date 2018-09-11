@@ -4,12 +4,11 @@
 <nav class="fancynavbar" data-zanim-lg='{"from":{"opacity":1,"x":70},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.3}' data-zanim-xs='{"from":{"opacity":1,"y":-48},"to":{"opacity":1,"y":0},"ease":"CubicBezier","duration":0.8,"delay":0.3}'
   data-zanim-trigger="scroll" data-exclusive="true">
   <div class="fancynavbar-togglerbar bg-black">
-    <a class="fancynavbar-brand" href="/">
-      <%= image_tag ("logo.png"), class:"fancynavbar-brand-img", alt:"", width:"30", height:"30" %>
+    <%=link_to image_tag ("logo.png"), class:"fancynavbar-brand-img", alt:"", width:"30", height:"30" %>
 
       <!--You can use icon or text logo as well-->
       <!--<span class='fab fa-superpowers fs-3'></span>-->
-      <!--<span class='logo-sparrow'>S</span>--></a>
+      <!--<span class='logo-sparrow'>S</span>-->
     <div class="fancynavbar-toggler">
       <svg class="fancynavbar-toggler-icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.5}' data-zanim-trigger="scroll">
         <path id="path-top" d="M20,25c0,0,22,0,30,0c16,0,18.89,40.71-.15,21.75C38.7,35.65,19.9,16.8,19.9,16.8"></path>
@@ -18,27 +17,40 @@
       </svg>
     </div>
     <div class="fancynavbar-addon" data-zanim-lg='{"from":{"opacity":0,"x":45},"to":{"opacity":1,"x":0},"ease":"CubicBezier","duration":0.8,"delay":0.4}' data-zanim-trigger="scroll">
-      <a class="fancynavbar-addon-item" href="#"><span class="fab fa-twitter"></span></a>
-      <a class="fancynavbar-addon-item" href="#" data-remodal-target="language"><span class="text-sans-serif ls font-weight-black fs--1">EN</span></a>
+      <%= link_to '/', :class => 'fancynavbar-addon-item' do %>
+        <span class="fab fa-twitter"></span>
+      <% end %>
+      <%= link_to '/', :class => 'fancynavbar-addon-item', "data-remodal-target"=>"language" do %>
+        <span class="text-sans-serif ls font-weight-black fs--1">EN</span>
+      <% end %>
+
     </div>
   </div>
   <div class="fancynavbar-collapse">
     <ul class="fancynavbar-nav">
 
       <li class="fancynav-item">
-        <a class="fancynav-link" href="/"><span class="fancynav-link-content">Manifesto</span></a>
+        <%= link_to '/', :class => 'fancynav-link' do %>
+          <span class="fancynav-link-content">Manifesto</span>
+        <% end %>
       </li>
 
       <li class="fancynav-item">
-        <a class="fancynav-link" href="/home/index"><span class="fancynav-link-content">Accueil</span></a>
+        <%= link_to '/home/index', :class => 'fancynav-link' do %>
+          <span class="fancynav-link-content">Accueil</span>
+        <% end %>
       </li>
 
       <li class="fancynav-item">
-        <a class="fancynav-link" href="/projects"><span class="fancynav-link-content">Projets</span></a>
+        <%= link_to '/projects', :class => 'fancynav-link' do %>
+          <span class="fancynav-link-content">Projets</span>
+        <% end %>
       </li>
 
       <li class="fancynav-item fancy-dropdown">
-        <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">Artiste</span></a>
+        <%= link_to "JavaScript:void(0)", :class=>"fancynav-link fancy-dropdown-toggle" do %>
+          <span class="fancynav-link-content">Artiste</span>
+        <% end %>
         <div class="fancy-dropdown-menu">
           <div class="row pb-4 pt-3">
             <div class="col-auto">
@@ -54,7 +66,9 @@
         </div>
       </li>
       <li class="fancynav-item fancy-dropdown">
-        <a class="fancynav-link fancy-dropdown-toggle" href="JavaScript:void(0)"><span class="fancynav-link-content">Mécène</span></a>
+        <%= link_to "JavaScript:void(0)", :class=>"fancynav-link fancy-dropdown-toggle" do %>
+          <span class="fancynav-link-content">Mécène</span>
+        <% end %>
         <div class="fancy-dropdown-menu">
           <div class="row pb-4 pt-3">
             <div class="col-auto">
@@ -69,7 +83,6 @@
           </div>
         </div>
       </li>
-
     </ul>
   </div>
 </nav>
