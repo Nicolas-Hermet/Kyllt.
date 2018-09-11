@@ -100,25 +100,73 @@
           </div>
 
 <!-- Begin Fund Form -->
-            <% if current_mecene %>
-              <%= form_for(:buffer, url: fund_this_project_path, method: :post) do |f| %>
-                <div class="row mb-4">
-                  <div class="col">
-                    <%= f.text_field :amount, class:"form-control border-300 bg-light", placeholder:"Somme à investir" %>
-                  </div>
-                </div>
-                <div class="row mb-4 align-items-center">
-                  <div class="col-auto">
-                    <%= f.submit "fund this project", class:"btn btn-dark btn-sm px-7 mt-4" %>
-                  </div>
-                </div>
+        <% if current_mecene %>
+          <%= form_tag charges_path do %>
+            <div id="error_explanation">
+              <% if flash[:error].present? %>
+                <p><%= flash[:error] %></p>
               <% end %>
-            <% end %>
+            </div>
+            <article>
+              <%= label_tag(:amount, 'Donation Amount:', class:"form-control border-300 bg-light") %>
+              <%= text_field_tag(:amount) %>
+            </article>
+            <article>
+              <%= hidden_field_tag(:stripeToken) %>
+              <%= hidden_field_tag(:id, @project.id) %>
+            </article>
+            <button id='donateButton', class="btn btn-dark btn-sm px-7 mt-4">Financez ce projet</button>
+          <% end %>
+          <!-- STRIPE JS DONATION SYSTEM -->
+          <script src="https://checkout.stripe.com/checkout.js"></script>
+
+          <script>
+          var handler = StripeCheckout.configure({
+            key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+            locale: 'auto',
+            name: 'Sand Castles United',
+            description: 'One-time donation',
+            token: function(token) {
+              $('input#stripeToken').val(token.id);
+              $('form').submit();
+            }
+          });
+          $('#donateButton').on('click', function(e) {
+            e.preventDefault();
+
+            $('#error_explanation').html('');
+
+            var amount = $('input#amount').val();
+            amount = amount.replace(/\$/g, '').replace(/\,/g, '')
+
+            amount = parseFloat(amount);
+
+            if (isNaN(amount)) {
+              $('#error_explanation').html('<p>Please enter a valid amount in USD ($).</p>');
+            }
+            else if (amount < 5.00) {
+              $('#error_explanation').html('<p>Donation amount must be at least $5.</p>');
+            }
+            else {
+              amount = amount * 100; // Needs to be an integer!
+              handler.open({
+                amount: Math.round(amount)
+              })
+            }
+          });
+          $(window).on('popstate', function() {
+            handler.close();
+          });
+          </script>
+            <!-- END STRIPE JS DONATION SYSTEM -->
+        <% end %>
 <!-- End Fund Form -->
     </div>
   </div>
 </div>
   <!-- end of .container-->
 </section>
+
+
 <!-- <section> close ============================-->
 <!-- ============================================-->
