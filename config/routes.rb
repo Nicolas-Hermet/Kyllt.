@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 	resources :artists
 	resources :mecenes
 	resources :projects
+	resources :charges
 
 	get '/projects/new', to: 'projects#new'
 
