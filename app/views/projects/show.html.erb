@@ -100,19 +100,20 @@
           </div>
 
 <!-- Begin Fund Form -->
-
-            <%= form_for(:buffer, url: fund_this_project_path, method: :fund) do |f| %>
-              <div class="row mb-4">
-                <div class="col">
-                  <%= f.text_field :amount, class:"form-control border-300 bg-light", placeholder:"Somme à investir" %>
+            <% if current_mecene %>
+              <%= form_for(:buffer, url: fund_this_project_path, method: :fund) do |f| %>
+                <div class="row mb-4">
+                  <div class="col">
+                    <%= f.text_field :amount, class:"form-control border-300 bg-light", placeholder:"Somme à investir" %>
+                  </div>
                 </div>
-              </div>
-              <div class="row mb-4 align-items-center">
-                <div class="col-auto">
-                  <%= f.submit "fund this project", class:"btn btn-dark btn-sm px-7 mt-4" %>
+                <div class="row mb-4 align-items-center">
+                  <div class="col-auto">
+                    <%= f.submit "fund this project", class:"btn btn-dark btn-sm px-7 mt-4" %>
+                  </div>
                 </div>
-              </div>
-					<% end %>
+              <% end %>
+            <% end %>
 <!-- End Fund Form -->
     </div>
   </div>
