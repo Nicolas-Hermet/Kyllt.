@@ -28,7 +28,7 @@
       <div class="col-sm profile-flex"data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'>
         <% if current_artist.avatar.attached? %>
           <% if current_artist.avatar.image? %>
-            <%= link_to image_tag(current_artist.avatar, width: 200), current_artist.avatar,:class=> 'square-profile img-fluid' %>
+            <%= image_tag(current_artist.avatar, width: 300, class: 'square-profile img-fluid') %>
           <% else %>
             <%= image_tag("profile.jpg", class: "square-profile img-fluid", width: '200') %><br/></br/>
           <% end %>
