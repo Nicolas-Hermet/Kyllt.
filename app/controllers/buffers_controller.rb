@@ -1,5 +1,5 @@
 class BuffersController < ApplicationController
-
+	protect_from_forgery with: :exception
 	def fund
 		@project = Project.find(params[:id])
 		# binding.pry
@@ -11,9 +11,5 @@ class BuffersController < ApplicationController
 			flash[:error] = "Vous ne pouvez pas investir plus que demandé par l'artiste"
 			redirect_to project_path(@project.id)
 		end
-		# if projectject.findparams[]
 	end
-
-
-
 end
