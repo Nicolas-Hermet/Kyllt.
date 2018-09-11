@@ -126,7 +126,7 @@
   <div class="container parallax" data-rellax-speed="3">
     <div class="progress-line mr-4" data-options='{"progress":<%= rand(1..100) %>,"text":"Avancée du projet."}'>
     </div><br/>
-    <div class="progress-line mr-4" data-options='{"progress":<%= rand(1..100) %>,"text":"Avancée du financement."}'>
+    <div class="progress-line mr-4" data-options='{"progress":<%= @project.funding*100/@project.budget %>,"text":"Avancée du financement."}'>
     </div>
   </div>
 </section>
