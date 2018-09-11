@@ -59,105 +59,104 @@
 				<!--   progressbar a pluger!  -->
 				<div class="progress-line mr-4" data-options='{"progress":<%= @project.funding*100/@project.budget %>,"text":"Funding"}'></div>
         <!--     -->
-          <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= @project.budget %></span><span class="fs-0"> €</span>
-          </div>
+          <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= @project.budget %></span><span class="fs-0"> €</span></div>
             <div class="content-project">
               <div>
-              <p class="text-black" href="page-product-single.html">
-                <h3 class="mb-0"><%= @project.title %></h3>
-              </p>
+	              <p class="text-black" href="page-product-single.html">
+	                <h3 class="mb-0"><%= @project.title %></h3>
+	              </p>
               </div>
               <div>
-              <p class="lead text-sans-serif"><%= @project.description %></p>
+            	  <p class="lead text-sans-serif"><%= @project.description %></p>
               </div>
               <div>
                 <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artiste :</span><br/>
-                </div>
-                <div>
-                  <span class="font-weight-normal pl-1"><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></span></h6>
-                  </div>
-                  <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Categorie :</span><br/>
-                  <span class="font-weight-normal pl-1"><%= @project.category %></span></h6>
-                  </div>
-                  <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Échéance du projet :</span><br/>
-                  <span class="font-weight-normal pl-1"><%= @project.duration %></span></h6>
-                  </div>
-                  <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Portée :</span><br/>
-                  <span class="font-weight-normal pl-1"><%= @project.scope %></span></h6>
-                  </div>
-                  <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Lieu de création :</span><br/>
-                  <span class="font-weight-normal pl-1"><%= @project.show_fav_place %></span></h6>
-                  </div>
-                  <div>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><br/>
-                  <span class="font-weight-normal pl-1"><%= @project.innovative %></span></h6>
-                  </div>
+              </div>
+              <div>
+              	<span class="font-weight-normal pl-1"><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></span></h6>
+              </div>
+              <div>
+          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Categorie :</span><br/>
+              	<span class="font-weight-normal pl-1"><%= @project.category %></span></h6>
+              </div>
+              <div>
+          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Échéance du projet :</span><br/>
+              	<span class="font-weight-normal pl-1"><%= @project.duration %></span></h6>
+              </div>
+              <div>
+          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Portée :</span><br/>
+              	<span class="font-weight-normal pl-1"><%= @project.scope %></span></h6>
+              </div>
+              <div>
+          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Lieu de création :</span><br/>
+              	<span class="font-weight-normal pl-1"><%= @project.show_fav_place %></span></h6>
+              </div>
+              <div>
+          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><br/>
+              	<span class="font-weight-normal pl-1"><%= @project.innovative %></span></h6>
               </div>
           </div>
+      </div>
 
-      <!-- Begin Fund Form -->
-        <% if current_mecene %>
-          <%= form_tag charges_path do %>
-            <div id="error_explanation">
-              <% if flash[:error].present? %>
-                <p><%= flash[:error] %></p>
-              <% end %>
-            </div>
-            <article>
-              <%= label_tag(:amount, 'Donation Amount:', class:"form-control border-300 bg-light") %>
-              <%= text_field_tag(:amount) %>
-            </article>
-            <article>
-              <%= hidden_field_tag(:stripeToken) %>
-              <%= hidden_field_tag(:id, @project.id) %>
-            </article>
-            <button id='donateButton', class="btn btn-dark btn-sm px-7 mt-4">Financez ce projet</button>
-          <% end %>
-          <!-- STRIPE JS DONATION SYSTEM -->
-          <script src="https://checkout.stripe.com/checkout.js" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"></script>
-          <script>
-            var handler = StripeCheckout.configure({
-              key: '<%= Rails.configuration.stripe[:publishable_key] %>',
-              locale: 'auto',
-              name: 'Sand Castles United',
-              description: 'One-time donation',
-              token: function(token) {
-                $('input#stripeToken').val(token.id);
-                $('form').submit();
-              }
-            });
-
-            $('#donateButton').on('click', function(e) {
-              e.preventDefault();
-              $('#error_explanation').html('');
-              var amount = $('input#amount').val();
-              amount = amount.replace(/\$/g, '').replace(/\,/g, '')
-              amount = parseFloat(amount);
-              if (isNaN(amount)) {
-                $('#error_explanation').html('<p>Veuillez entrer une valeure valide en euros (€).</p>');
-              }
-              else if (amount < 5.00) {
-                $('#error_explanation').html('<p>Le financement ne peut être inférieur à 100€.</p>');
-              }
-              else {
-                amount = amount * 100; // Needs to be an integer!
-                handler.open({
-                  amount: Math.round(amount)
-                })
-              }
-            });
-
-            $(window).on('popstate', function() {
-              handler.close();
-            });
-          </script>
-          
-            <!-- END STRIPE JS DONATION SYSTEM -->
+<!-- Begin Fund Form -->
+  <% if current_mecene %>
+    <%= form_tag charges_path do %>
+      <div id="error_explanation">
+        <% if flash[:error].present? %>
+          <p><%= flash[:error] %></p>
         <% end %>
+      </div>
+      <article>
+        <%= label_tag(:amount, 'Donation Amount:', class:"form-control border-300 bg-light") %>
+        <%= text_field_tag(:amount) %>
+      </article>
+      <article>
+        <%= hidden_field_tag(:stripeToken) %>
+        <%= hidden_field_tag(:id, @project.id) %>
+      </article>
+      <button id='donateButton', class="btn btn-dark btn-sm px-7 mt-4">Financez ce projet</button>
+    <% end %>
+    <!-- STRIPE JS DONATION SYSTEM -->
+    <script src="https://checkout.stripe.com/checkout.js" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"></script>
+    <script>
+      var handler = StripeCheckout.configure({
+        key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+        locale: 'auto',
+        name: 'Sand Castles United',
+        description: 'One-time donation',
+        token: function(token) {
+          $('input#stripeToken').val(token.id);
+          $('form').submit();
+        }
+      });
+
+      $('#donateButton').on('click', function(e) {
+        e.preventDefault();
+        $('#error_explanation').html('');
+        var amount = $('input#amount').val();
+        amount = amount.replace(/\$/g, '').replace(/\,/g, '')
+        amount = parseFloat(amount);
+        if (isNaN(amount)) {
+          $('#error_explanation').html('<p>Veuillez entrer une valeure valide en euros (€).</p>');
+        }
+        else if (amount < 5.00) {
+          $('#error_explanation').html('<p>Le financement ne peut être inférieur à 100€.</p>');
+        }
+        else {
+          amount = amount * 100; // Needs to be an integer!
+          handler.open({
+            amount: Math.round(amount)
+          })
+        }
+      });
+
+      $(window).on('popstate', function() {
+        handler.close();
+      });
+    </script>
+
+      <!-- END STRIPE JS DONATION SYSTEM -->
+  <% end %>
 <!-- End Fund Form -->
     </div>
   </div>

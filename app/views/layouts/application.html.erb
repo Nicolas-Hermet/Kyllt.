@@ -36,7 +36,6 @@
     </main>
       <%= render "renders/footer" %>
       <%= render 'renders/remodal' %>
-      <script src="https://checkout.stripe.com/checkout.js" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"></script>
       <%= javascript_include_tag "js/jquery.min.js" %>
       <%= javascript_include_tag "js/popper.min.js" %>
       <%= javascript_include_tag "js/bootstrap.js" %>
@@ -48,7 +47,6 @@
       <%= javascript_include_tag "js/jquery.mb.YTPlayer.min.js" %>
       <%= javascript_include_tag "js/rellax.min.js" %>
       <%= javascript_include_tag "js/jquery.fancybox.min.js" %>
-      <%= javascript_include_tag "js/progressbar.min.js" %>
       <%= javascript_include_tag "js/theme.js" %>
   </body>
 </html>
