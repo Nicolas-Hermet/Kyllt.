@@ -10,13 +10,17 @@
                 <% end %>
                 <ul data-rellax-speed="8" class="parallax">
                 	<% if mecene_signed_in? %>
+                  <div class="mecene-li">
                   <!-- ##################### -->
-                  <h3><%= link_to 'Voir les projets', projects_path, class:"white-mecene li-signup" %></h3>
-                  <!-- ##################### -->
-                	<% else %>
-                  <h2 class="white-mecene">Mécène</h2>
-                	<li><%= link_to "Log in", new_mecene_session_path, class: "white-mecene li-signup" %></li>
-                	<li><%= link_to "Sign up", new_mecene_registration_path, class: "white-mecene li-signup" %></li>
+                    <div><li class="index-li"><%= link_to 'Voir les projets', projects_path, class:"white-mecene li-signup" %></li></div>
+                    <div><li class="index-li"><%= link_to 'Éditez votre profil', edit_mecene_registration_path, class: "white-mecene li-signup" %></li></div>
+                    <div><li class="index-li"><%= link_to 'Se déconnecter', destroy_mecene_session_path, method: :delete, class: "white-mecene li-signup" %></li></div>
+                  </div>
+                    <!-- ##################### -->
+                  	<% else %>
+                    <h2 class="white-mecene">Mécène</h2>
+                  	<li class="index-li"><%= link_to "Log in", new_mecene_session_path, class: "white-mecene li-signup" %></li>
+                  	<li class="index-li"><%= link_to "Sign up", new_mecene_registration_path, class: "white-mecene li-signup" %></li>
                 	<% end %>
               </div>
           </div>
@@ -33,13 +37,17 @@
               <ul data-rellax-speed="8" class="parallax">
                 <% if artist_signed_in? %>
                 <!-- ##################### -->
-                <h3><%= link_to 'Soumettre un projet', projects_new_path, class:"black-artist li-signup" %></h3>
-                <h3><%= link_to 'Voir les projets', projects_path, class:"black-artist li-signup" %></h3>
+                <div class="artist-li">
+                  <div><li class="index-li"><%= link_to 'Soumettre un projet', projects_new_path, class:"black-artist li-signup" %></li></div>
+                  <div><li class="index-li"><%= link_to 'Voir les projets', projects_path, class:"black-artist li-signup" %></li></div>
+                  <div><li class="index-li"><%= link_to 'Éditez votre profil', edit_artist_registration_path, class: "white-mecene li-signup" %></li></div>
+                  <div><li class="index-li"><%= link_to 'Se déconnecter', destroy_artist_session_path, method: :delete, class: "white-mecene li-signup" %></li></div>
+                </div>
                 <!-- ##################### -->
                 <% else %>
                 <h2 data-rellax-speed="8" class="black-artist">Artiste</h2>
-                  <li> <%= link_to 'Log in', new_artist_session_path, class: "black-artist li-signup" %> </li>
-                  <li> <%= link_to 'Sign up', new_artist_registration_path, class: "black-artist li-signup" %> </li>
+                <li class="index-li"> <%= link_to 'Log in', new_artist_session_path, class: "black-artist li-signup" %> </li>
+                <li class="index-li"> <%= link_to 'Sign up', new_artist_registration_path, class: "black-artist li-signup" %> </li>
                 <% end %>
               </ul>
             </div>

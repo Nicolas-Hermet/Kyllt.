@@ -17,12 +17,12 @@
 </section>
 <!-- ============================================-->
 
-
+<section class="margin-section">
 <!-- begin profile pic-->
 <div class="col-12 mt-6">
   <div class="bg-light p-5 rounded profile-flex">
     <div class="row no-gutters justify-content-right text-center text-sm-left">
-      <div class="col-sm profile-flex">
+      <div class="col-sm profile-flex" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'>
         <% if current_mecene.avatar.attached? %>
           <% if current_mecene.avatar.image? %>
           <%= image_tag(current_mecene.avatar, width: 300, class: 'square-profile img-fluid') %>
@@ -49,17 +49,50 @@
   </div>
 </div>
 <!-- end of profile pic-->
-
+</section>
 
 <!-- Projects Mecene User Fund -->
-<div class="col-12 mt-6">
-  <div class="bg-light p-5 rounded profile-flex">
-    <div class="row no-gutters justify-content-right text-center text-sm-left">
-      <div class="col-sm profile-flex">
-        <h5>Les projets que vous financez : </h5>
-        
-        <% @arr.each_pair do |k,v|%> 
-          <%= k.title %> Vous avez investi <%= v.to_s %> € sur les <%= k.budget %> demandés. Vous possédez donc <%= ((v.to_f/k.budget.to_f)*0.45*100).round.to_s %> % des parts de l'artiste <br /> 
+<section>
+  <% @arr.each_pair do |k,v|%>
+  <div class="container">
+    <p class="lead font-italic text-400 px-lg-7"><span class="funded">Les projets que vous financez : </span></p>
+
+    <div class="row index-flex">
+      <div class="col-lg-6" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-right","delay":0.5}'>
+        <div class="py-9 h-100 position-relative">
+          <% if k.uploads.attached? %>
+          <%= image_tag (k.uploads[0]), class: "img-fluid2" %>
+          <% end %>
+          <!--/.bg-holder-->
+        </div>
+      </div>
+      <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
+      <!--   progressbar a pluger!  -->
+      <div class="progress-line " data-options='{"progress":<%= k.funding*100/k.budget %>,"text":"Avancée du financement."}'></div>
+        <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= k.budget %></span><span class="fs-0"> €</span></div>
+          <h3 class="mb-0"><%= link_to k.title, project_path(k.id)%></h3>
+          <p class="lead text-sans-serif"><%= k.description %></p>
+          <ul class="list-unstyled mt-4">
+            <li>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= k.category %></span></h6>
+            </li>
+            <li>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= k.duration %></span></h6>
+            </li>
+            <li>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= k.scope %></span></h6>
+            </li>
+            <li>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= k.show_fav_place %></span></h6>
+            </li>
+            <li>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= k.innovative %></span></h6>
+            </li>
+          </ul>
+            <li><p>Vous avez investi <%= v.to_s %> € sur les <%= k.budget %> € demandés. Vous possédez donc <%= ((v.to_f/k.budget.to_f)*0.45*100).round.to_s %> % des parts de l'artiste </p><br /></li>
+            </div>
+          </div>
+        </div>
         <% end %>
       </div>
     </div>
@@ -67,3 +100,4 @@
 </div>
 
 <!-- End of Projects Mecene User Fund -->
+</section>
