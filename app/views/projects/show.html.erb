@@ -117,7 +117,6 @@
       <button id='donateButton', class="btn btn-dark btn-sm px-7 mt-4">Financez ce projet</button>
     <% end %>
     <!-- STRIPE JS DONATION SYSTEM -->
-    <script src="https://checkout.stripe.com/checkout.js" data-key="<%= Rails.configuration.stripe[:publishable_key] %>"></script>
     <script>
       var handler = StripeCheckout.configure({
         key: '<%= Rails.configuration.stripe[:publishable_key] %>',
