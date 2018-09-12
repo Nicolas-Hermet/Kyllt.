@@ -14552,3 +14552,12 @@ ul {
   align-items: flex-start;
   margin-left: -1.8vw;
 }
+
+.projects-funded{
+  text-align: center;
+}
+
+.funded{
+  color: black;
+  text-align: center;
+}
