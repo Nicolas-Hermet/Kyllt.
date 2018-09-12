@@ -49,3 +49,21 @@
   </div>
 </div>
 <!-- end of profile pic-->
+
+
+<!-- Projects Mecene User Fund -->
+<div class="col-12 mt-6">
+  <div class="bg-light p-5 rounded profile-flex">
+    <div class="row no-gutters justify-content-right text-center text-sm-left">
+      <div class="col-sm profile-flex">
+        <h5>Les projets que vous financez : </h5>
+        
+        <% @arr.each_pair do |k,v|%> 
+          <%= k.title %> Vous avez investi <%= v.to_s %> € sur les <%= k.budget %> demandés. Vous possédez donc <%= ((v.to_f/k.budget.to_f)*0.45*100).round.to_s %> % des parts de l'artiste <br /> 
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of Projects Mecene User Fund -->
