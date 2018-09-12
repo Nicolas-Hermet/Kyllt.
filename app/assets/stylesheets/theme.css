@@ -14561,3 +14561,11 @@ ul {
   color: black;
   text-align: center;
 }
+
+.first-pic{
+  margin-top: -50vh;
+}
+
+.first-pic-project{
+  margin-top: -25vh;
+}
