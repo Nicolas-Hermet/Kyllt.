@@ -56,6 +56,7 @@
             <div class="col-auto">
               <% if artist_signed_in? %>
                 <%= link_to 'Mon profil', current_artist, class: "fancy-dropdown-item" %>
+                <%= link_to 'Soumettre un projet', projects_new_path, class: "fancy-dropdown-item" %>
                 <%= link_to 'Éditez votre profil', edit_artist_registration_path, class: "fancy-dropdown-item" %>
                 <%= link_to 'Se déconnecter', destroy_artist_session_path, method: :delete, class: "fancy-dropdown-item" %>
               <% else %>
