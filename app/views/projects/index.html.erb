@@ -25,67 +25,69 @@
   <div class="container">
     <div class="row index-flex parallax" data-rellax-speed="4">
       <% @project.each do |project| %>
-      <div class="col-lg-6">
-        <div class="py-9 h-100 position-relative">
-					<div class="ruby-code">
-            <% if project.uploads.attached? %>
-                <% project.uploads.each do |upload| %>
-                  <% if upload.variable? %>
-                    <%= link_to image_tag(upload, width: 400), upload, :class=> 'preview_uploads' %>
-                    <% break %>
-                  <% elsif upload.previewable? %>
-                    <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2" %>
-                    <% break %>
-                  <% elsif upload.image? %>
-                    <%= link_to image_tag(upload, width: 400), upload,:class=> 'preview_uploads' %>
-                    <% break %>
-                  <% else %>
-                    <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2"%>
-                  <% end %>
+        <% if project.validated && project.funding < project.budget %>
+          <div class="col-lg-6">
+            <div class="py-9 h-100 position-relative">
+    					<div class="ruby-code">
+                <% if project.uploads.attached? %>
+                    <% project.uploads.each do |upload| %>
+                      <% if upload.variable? %>
+                        <%= link_to image_tag(upload, width: 400), upload, :class=> 'preview_uploads' %>
+                        <% break %>
+                      <% elsif upload.previewable? %>
+                        <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2" %>
+                        <% break %>
+                      <% elsif upload.image? %>
+                        <%= link_to image_tag(upload, width: 400), upload,:class=> 'preview_uploads' %>
+                        <% break %>
+                      <% else %>
+                        <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2"%>
+                      <% end %>
+                    <% end %>
+              	<% else %>
+                  <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2"%>
                 <% end %>
-          	<% else %>
-              <%= link_to image_tag('thanks.jpg', width: 400), class: "img-fluid2"%>
-            <% end %>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
-				<!--   progressbar a pluger!  -->
-				<div class="progress-line mr-4" data-options='{"progress":<%= project.funding*100/project.budget %>,"text":"Financement"}'>
-				</div>
-        <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= project.budget %></span><span class="fs-0"> €</span>
-        </div>
-          <h3 class="mb-0"><%= link_to project.title, project_path(project.id)%></h3>
-      	  <p class="lead text-sans-serif"><%= project.description %></p>
-        <ul class="list-unstyled mt-4">
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><span class="font-weight-normal pl-1"><%= project.artist.first_name.capitalize %> <%= project.artist.last_name[0].capitalize %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= project.category %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= project.duration %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= project.scope %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= project.show_fav_place %></span></h6>
-          </li>
-          <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= project.innovative %></span></h6>
-          </li>
-        </ul>
-				<% if current_mecene %>
-				<%= link_to 'Financer ce projet!', project_path(project.id), class:'btn btn-dark btn-sm px-7 mt-4' %>
-				<% elsif current_artist%>
-				<%= link_to 'Voir le projet!', project_path(project.id), class:'btn btn-dark btn-sm px-7 mt-4' %>
-				<% else %>
-				<%= link_to 'Voir le projet!', project_path(project.id), class:'btn btn-dark btn-sm px-7 mt-4' %>
-				<% end %>
-      </div>
+          <div class="col-lg-6 pl-lg-4 pl-xl-6 mt-4 mt-lg-0">
+    				<!--   progressbar a pluger!  -->
+    				<div class="progress-line mr-4" data-options='{"progress":<%= project.funding*100/project.budget %>,"text":"Financement"}'>
+    				</div>
+            <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= project.budget %></span><span class="fs-0"> €</span>
+            </div>
+              <h3 class="mb-0"><%= link_to project.title, project_path(project.id)%></h3>
+          	  <p class="lead text-sans-serif"><%= project.description %></p>
+            <ul class="list-unstyled mt-4">
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><span class="font-weight-normal pl-1"><%= project.artist.first_name.capitalize %> <%= project.artist.last_name[0].capitalize %></span></h6>
+              </li>
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= project.category %></span></h6>
+              </li>
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= project.duration %></span></h6>
+              </li>
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= project.scope %></span></h6>
+              </li>
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= project.show_fav_place %></span></h6>
+              </li>
+              <li>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= project.innovative %></span></h6>
+              </li>
+            </ul>
+    				<% if current_mecene %>
+    				  <%= link_to 'Financer ce projet!', project_path(project.id), class:'btn btn-dark btn-sm px-7 mt-4' %>
+    				<% elsif current_artist%>
+    				  <%= link_to 'Voir le projet!', project_path(project.id), class:'btn btn-dark btn-sm px-7 mt-4' %>
+    				<% else %>
+    				  <%= link_to 'Voir le projet!', project_path(project.id), class:'btn btn-dark btn-sm px-7 mt-4' %>
+    				<% end %>
+          </div>
+      <% end %>
 		<% end %>
   </div>
 </div>

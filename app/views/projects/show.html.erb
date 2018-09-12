@@ -113,6 +113,7 @@
       <article>
         <%= hidden_field_tag(:stripeToken) %>
         <%= hidden_field_tag(:id, @project.id) %>
+        <%= hidden_field_tag(:max, @project.budget-@project.funding) %>
       </article>
       <button id='donateButton', class="btn btn-dark btn-sm px-7 mt-4">Financez ce projet</button>
     <% end %>
@@ -133,6 +134,7 @@
         e.preventDefault();
         $('#error_explanation').html('');
         var amount = $('input#amount').val();
+        var max = $('input#max').val();
         amount = amount.replace(/\$/g, '').replace(/\,/g, '')
         amount = parseFloat(amount);
         if (isNaN(amount)) {
@@ -140,6 +142,9 @@
         }
         else if (amount < 5.00) {
           $('#error_explanation').html('<p>Le financement ne peut être inférieur à 100€.</p>');
+        }
+        else if (amount > max){
+          $('#error_explanation').html('<p>Vous ne pouvez pas donner plus que le besoin actuel de financement '+max+'€.</p>');
         }
         else {
           amount = amount * 100; // Needs to be an integer!
