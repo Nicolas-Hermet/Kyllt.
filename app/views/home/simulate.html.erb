@@ -24,5 +24,11 @@
 
 <% end %>
 
+<%if @result == nil || @part_societe == nil %>
+
+<% else %>
+
 <h4> Avec cette configuration vous gagnerez <%= @result %> euros de bénéfices. </h4>
 <h4> Ce qui représente <%= @part_societe %> % des parts de la société artiste. </h4>
+
+<% end %>
