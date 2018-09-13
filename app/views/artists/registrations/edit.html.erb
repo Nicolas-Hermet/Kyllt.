@@ -40,7 +40,7 @@
           </div>
           <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
             <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
-              <h3>Education.</h3>
+              <h3>* Education.</h3>
               <p>Let us know here if you've become an artist by your own will and work or if you studied the art somewhere.<br/> <br/> <br/> <br/>
               <%= f.text_field :school, class:"form-control border-300 bg-light", placeholder:"Études ?" %></p>
             </div>
@@ -52,7 +52,7 @@
           </div>
           <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
             <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
-              <h3>Artistic background.</h3>
+              <h3>* Artistic background.</h3>
               <p>Already finished some projects ?<br/> Already had exhibitions (solo or group) ?<br/>Already sold some piece of art ?<br/> We would love to hear more about it !<br/> <br/> <br/> <br/>
               <%= f.text_field :previous_projects, class:"form-control border-300 bg-light", placeholder:"Précédents projets ?" %>
               <%= f.text_field :previous_exhibitions, class:"form-control border-300 bg-light", placeholder:"Une précédente exposition ?" %>
@@ -66,7 +66,7 @@
           </div>
           <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
             <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
-              <h3>Some personnal informations.</h3>
+              <h3>* Some personnal informations.</h3>
               <p>Your past is important to know your present. <br/>Your present is a hint of your future. <br/>Let us know how we can help you build your best future !<br/> <br/> <br/> <br/>
               <%= f.text_field :biography, class:"form-control border-300 bg-light", placeholder:"Écrivez une courte biographie." %>
               <%= f.text_field :time_invest_on_project, class:"form-control border-300 bg-light", placeholder:"À quel point êtes vous investi dans l'art ? (0 - 100 %)" %>
@@ -80,7 +80,7 @@
           </div>
           <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
             <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
-              <h3>Bank informations.</h3>
+              <h3>* Bank informations.</h3>
               <p>You want to get your funding ? We then need to know your IBAN.<br/> <br/> <br/> <br/>
               <%= f.text_field :iban, class:"form-control border-300 bg-light", placeholder:"Quel est votre IBAN ?" %></p>
             </div>
@@ -114,6 +114,7 @@
         </div>
           <div class="submitbtn">
             <div class="row mb-4 align-items-center">
+              <p>(*) : Champs obligatoires</p>
                 <%= f.submit "Update", class:"btn btn-danger btn-block" %>
                 <% end %>
                 </div>

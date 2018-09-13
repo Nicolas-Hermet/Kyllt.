@@ -31,7 +31,7 @@
       </div>
       <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
         <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
-          <h3>Your project title.</h3>
+          <h3>* Your project title.</h3>
           <p>What name do you want your project to have ? <br/> <br/> <br/> <br/>
             <%= f.text_field :title, class:"form-control border-300 bg-light", placeholder:"Title" %></p>
         </div>
@@ -43,7 +43,7 @@
       </div>
       <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
         <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
-          <h3>Description du projet.</h3>
+          <h3>* Description du projet.</h3>
           <p>Décrivez votre projet de la manière la plus détaillée possible afin de donner envie aux mécènes de croire en vous. <br/> <br/> <br/><br/>
           	<%= f.text_field :description, class:"form-control border-300 bg-light", placeholder:"Explication"  %></p>
         </div>
@@ -68,7 +68,7 @@
       </div>
       <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
         <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
-          <h3>Durée ?</h3>
+          <h3>* Durée ?</h3>
           <p>Dites nous en combien de temps vous engagez-vous à terminer votre projet ?<br/> <br/> <br/> <br/>
           <%= f.date_field :duration, class:"form-control border-300 bg-light", placeholder:"1 mois ? 2 ans ?" %></p>
         </div>
@@ -80,7 +80,7 @@
       </div>
       <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
         <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
-          <h3>Procédé.</h3>
+          <h3>* Procédé.</h3>
           <p>Votre projet se base sur quels procédés de création ?<br/> <br/> <br/> <br/>
           <%= f.text_field :category, class:"form-control border-300 bg-light", placeholder:"Peinture ?... Photographie ?" %></p>
         </div>
@@ -92,7 +92,7 @@
       </div>
       <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
         <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
-          <h3>Financement.</h3>
+          <h3>* Financement.</h3>
           <p>Dites à nos mécènes de combien vous avez besoin afin de mener à bien votre projet ?<br/> <br/> <br/> <br/>
 						<%= f.text_field :budget, class:"form-control border-300 bg-light", placeholder:"Combien ?" %></p>
         	</p>
@@ -105,7 +105,7 @@
 			</div>
 			<div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
 				<div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">07</span>
-					<h3>La portée de votre projet.</h3>
+					<h3>* La portée de votre projet.</h3>
 					<p>Quelle est la cible de votre projet ? Que remet il en question dans la vision actuelle du monde ? <br/> <br/> <br/> <br/>
 					<%= f.text_field :scope, class:"form-control border-300 bg-light", placeholder:"Portée ?" %></p>
 				</div>
@@ -144,13 +144,15 @@
 		</div>
       <div class="submitbtn">
         <div class="row mb-4 align-items-center">
-          <%= f.submit "Soumettre votre projet", class:"btn btn-danger btn-block" %>
-        </div>
-      </div>
-      <div class="row mb-4 align-items-center delete-account">
-        <%= link_to "Retour", current_artist %>
-      </div>
-        <br/>
+          <p>(*) : Champs obligatoires</p>
+            <%= f.submit "Soumettre votre projet", class:"btn btn-danger btn-block" %>
+            </div>
+          </div>
+          <div class="row mb-4 align-items-center delete-account">
+            </div>
+            <br/>
+          <%= link_to "Retour", current_artist %>
+          </div>
       </div>
     </div>
   </div>
