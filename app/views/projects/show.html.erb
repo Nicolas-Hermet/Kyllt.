@@ -122,7 +122,7 @@
       var handler = StripeCheckout.configure({
         key: '<%= Rails.configuration.stripe[:publishable_key] %>',
         locale: 'auto',
-        name: 'Sand Castles United',
+        name: 'Excellent choix !',
         description: 'Votre financement',
         token: function(token) {
           $('input#stripeToken').val(token.id);
