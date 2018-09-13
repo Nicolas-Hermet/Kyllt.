@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row justify-content-center text-center py-7">
         <div class="col-lg-9 px-4">
-          <h3 class="fs-2 fs-sm-3 text-white text-profile">Welcome<br/>
+          <h3 class="fs-2 fs-sm-3 text-white text-profile">Bienvenue<br/>
           </br/><%= current_mecene.first_name %> <%= current_mecene.last_name %></h3>
           <br/>
       </div>
@@ -43,7 +43,7 @@
           <p><strong>Localisation des artistes : </strong><br/><%= current_mecene.locality %></p><br/>
         </br/>
         </div>
-        <p class="lead font-italic text-400 px-lg-7">You're currently logged with the following email : <%= current_mecene.email %></p>
+        <p class="lead font-italic text-400 px-lg-7">Vous êtes actuellement connecté avec l'email suivant : <%= current_mecene.email %></p>
       </div>
     </div>
   </div>
@@ -74,19 +74,19 @@
           <p class="lead text-sans-serif"><%= k.description %></p>
           <ul class="list-unstyled mt-4">
             <li>
-              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= k.category %></span></h6>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Catégorie artistique:</span><span class="font-weight-normal pl-1"><%= k.category %></span></h6>
             </li>
             <li>
-              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= k.duration %></span></h6>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Délai du projet:</span><span class="font-weight-normal pl-1"><%= k.duration %></span></h6>
             </li>
             <li>
-              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= k.scope %></span></h6>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Portée:</span><span class="font-weight-normal pl-1"><%= k.scope %></span></h6>
             </li>
             <li>
-              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= k.show_fav_place %></span></h6>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Endroit de création:</span><span class="font-weight-normal pl-1"><%= k.show_fav_place %></span></h6>
             </li>
             <li>
-              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= k.innovative %></span></h6>
+              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><span class="font-weight-normal pl-1"><%= k.innovative %></span></h6>
             </li>
           </ul>
             <li><p>Vous avez investi <%= v.to_s %> € sur les <%= k.budget %> € demandés. Vous possédez donc <%= ((v.to_f/k.budget.to_f)*0.45*100).round.to_s %> % des parts de l'artiste </p><br /></li>

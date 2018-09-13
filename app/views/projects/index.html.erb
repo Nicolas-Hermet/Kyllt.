@@ -61,22 +61,22 @@
           	  <p class="lead text-sans-serif"><%= project.description %></p>
             <ul class="list-unstyled mt-4">
               <li>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artist:</span><span class="font-weight-normal pl-1"><%= project.artist.first_name.capitalize %> <%= project.artist.last_name[0].capitalize %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artiste:</span><span class="font-weight-normal pl-1"><%= project.artist.first_name.capitalize %> <%= project.artist.last_name[0].capitalize %></span></h6>
               </li>
               <li>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= project.category %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Categorie artistique:</span><span class="font-weight-normal pl-1"><%= project.category %></span></h6>
               </li>
               <li>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= project.duration %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Délai du projet:</span><span class="font-weight-normal pl-1"><%= project.duration %></span></h6>
               </li>
               <li>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= project.scope %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Portée:</span><span class="font-weight-normal pl-1"><%= project.scope %></span></h6>
               </li>
               <li>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= project.show_fav_place %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Endroit de création:</span><span class="font-weight-normal pl-1"><%= project.show_fav_place %></span></h6>
               </li>
               <li>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Innovative ?</span><span class="font-weight-normal pl-1"><%= project.innovative %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><span class="font-weight-normal pl-1"><%= project.innovative %></span></h6>
               </li>
             </ul>
     				<% if current_mecene %>
