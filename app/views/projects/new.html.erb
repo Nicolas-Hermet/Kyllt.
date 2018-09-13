@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  Soumettre un projet
+<% end %>
+
 <!-- ============================================-->
 <!-- <section> begin ============================-->
 <section class="border-top border-300" id="default-process">
@@ -50,7 +54,7 @@
         <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
           <h3>* Description du projet.</h3>
           <p>Décrivez votre projet de la manière la plus détaillée possible afin de donner envie aux mécènes de croire en vous. <br/> <br/> <br/><br/>
-          	<%= f.text_field :description, class:"form-control border-300 bg-light", placeholder:"Explication"  %></p>
+            <%= f.text_field :description, class:"form-control border-300 bg-light", placeholder:"Explication"  %></p>
         </div>
       </div>
     </div>
@@ -99,24 +103,24 @@
         <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
           <h3>* Financement.</h3>
           <p>Dites à nos mécènes de combien vous avez besoin afin de mener à bien votre projet ?<br/> <br/> <br/> <br/>
-						<%= f.text_field :budget, class:"form-control border-300 bg-light", placeholder:"Combien ?" %></p>
-        	</p>
+            <%= f.text_field :budget, class:"form-control border-300 bg-light", placeholder:"Combien ?" %></p>
+          </p>
         </div>
       </div>
     </div>
-		<div class="row">
-			<div class="col-lg-6 order-lg-2 text-center align-self-center test-img-right" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-left","delay":0.4}'>
-				<%= image_tag("1.4.jpg", class: "img-fluid-right", width: '400') %>
-			</div>
-			<div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
-				<div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">07</span>
-					<h3>* La portée de votre projet.</h3>
-					<p>Quelle est la cible de votre projet ? Que remet il en question dans la vision actuelle du monde ? <br/> <br/> <br/> <br/>
-					<%= f.text_field :scope, class:"form-control border-300 bg-light", placeholder:"Portée ?" %></p>
-				</div>
-			</div>
-		</div>
-		<div class="row overflow-hidden pb-1">
+    <div class="row">
+      <div class="col-lg-6 order-lg-2 text-center align-self-center test-img-right" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-left","delay":0.4}'>
+        <%= image_tag("1.4.jpg", class: "img-fluid-right", width: '400') %>
+      </div>
+      <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+        <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">07</span>
+          <h3>* La portée de votre projet.</h3>
+          <p>Quelle est la cible de votre projet ? Que remet il en question dans la vision actuelle du monde ? <br/> <br/> <br/> <br/>
+          <%= f.text_field :scope, class:"form-control border-300 bg-light", placeholder:"Portée ?" %></p>
+        </div>
+      </div>
+    </div>
+    <div class="row overflow-hidden pb-1">
       <div class="col-lg-6 border-lg-right border-300 text-center py-lg-8 test-img-left" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-right","delay":0.4}'>
         <%= image_tag("kiss.jpg", class: "img-fluid-left", width: '400') %>
       </div>
@@ -124,19 +128,19 @@
         <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">08</span>
           <h3>Lieu de travail rêvé ?</h3>
           <p>Précisez-nous, dans le cas où nous pourrions vous y aider, quel serai votre atelier rêvé ?<br/> <br/> <br/> <br/>
-						<%= f.text_field :show_fav_place, class:"form-control border-300 bg-light", placeholder:"Un endroit de rêve ?" %></p>
-        	</p>
+            <%= f.text_field :show_fav_place, class:"form-control border-300 bg-light", placeholder:"Un endroit de rêve ?" %></p>
+          </p>
         </div>
       </div>
     </div>
-		<div class="row">
-			<div class="col-lg-6 order-lg-2 text-center align-self-center test-img-right" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-left","delay":0.4}'>
-				<%= image_tag("thanks.jpg", class: "img-fluid-right", width: '400') %>
-			</div>
-			<div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
-				<div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">09</span>
-					<h3>Innovant ?</h3>
-					<p>Votre projet est-il innovant? (Techniquement? Intellectuellement?... )<br/> <br/> <br/> <br/>
+    <div class="row">
+      <div class="col-lg-6 order-lg-2 text-center align-self-center test-img-right" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"slide-left","delay":0.4}'>
+        <%= image_tag("thanks.jpg", class: "img-fluid-right", width: '400') %>
+      </div>
+      <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
+        <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">09</span>
+          <h3>Innovant ?</h3>
+          <p>Votre projet est-il innovant? (Techniquement? Intellectuellement?... )<br/> <br/> <br/> <br/>
 
             <%= f.label :innovative, "Oui", :value => true %>
             <%= f.radio_button :innovative, true %>
@@ -144,9 +148,9 @@
             <%= f.label :innovative, "Non", :value => false %>
             <%= f.radio_button :innovative, false %>
           </p>
-				</div>
-			</div>
-		</div>
+        </div>
+      </div>
+    </div>
       <div class="submitbtn">
         <div class="row mb-4 align-items-center">
           <p>(*) : Champs obligatoires</p>
