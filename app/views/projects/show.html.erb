@@ -1,8 +1,12 @@
+<% content_for :title do %>
+  <%= @project.title %>
+<% end %>
+
 <!-- ============================================-->
 <!-- <section> begin ============================-->
 <section class="py-0" id="page-shop" data-zanim-xs='{"delay":0.4,"animation":"zoom-out"}' data-zanim-trigger="scroll">
-	<div class="bg-holder overlay parallax rounded" style="background: url(<%= asset_path 'banner3.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}';data-rellax-percentage="1">
-	</div>
+  <div class="bg-holder overlay parallax rounded" style="background: url(<%= asset_path 'banner3.jpg' %>) no-repeat; background-size: cover;" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}';data-rellax-percentage="1">
+  </div>
   <!--/.bg-holder-->
   <div class="container">
     <div class="row">
@@ -31,16 +35,16 @@
           <div class="row" data-zanim-xs='{"delay":0.1,"animation":"zoom-in"}'>
             <div class="col">
               <div class="owl-carousel owl-theme owl-theme-vertical-1 owl-dots-inner owl-theme-white" data-options='{"items":1,"autoplay":false,"loop":true,"animateOut":"fadeOut","nav":true,"margin":30}'>
-								<% @project.uploads.each do |upload| %>
-                	<% if upload.variable? %>
-                		<%= link_to image_tag(upload), upload, :class=> 'preview_uploads' %>
-                	<% elsif upload.previewable? %>
-                		<%= link_to image_tag(upload.preview(resize: '400x600')), rails_blob_path(upload, disposition: :attachment), :class=> 'preview_uploads' %>
-                	<% elsif upload.image? %>
-                		<%= link_to image_tag(upload, width: 400), upload,:class=> 'preview_uploads' %>
-                	<% else %>
-                		<%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
-                	<% end %>
+                <% @project.uploads.each do |upload| %>
+                  <% if upload.variable? %>
+                    <%= link_to image_tag(upload), upload, :class=> 'preview_uploads' %>
+                  <% elsif upload.previewable? %>
+                    <%= link_to image_tag(upload.preview(resize: '400x600')), rails_blob_path(upload, disposition: :attachment), :class=> 'preview_uploads' %>
+                  <% elsif upload.image? %>
+                    <%= link_to image_tag(upload, width: 400), upload,:class=> 'preview_uploads' %>
+                  <% else %>
+                    <%= link_to upload.filename, rails_blob_path(upload, disposition: :attachment) %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -56,44 +60,44 @@
   <div class="container">
     <div class="row index-flex parallax" data-rellax-speed="2">
       <div class="col-lg-12 pl-lg-8 pl-xl-12 mt-4 mt-lg-0">
-				<!--   progressbar a pluger!  -->
-				<div class="progress-line mr-4" data-options='{"progress":<%= @project.funding*100/@project.budget %>,"text":"Funding"}'></div>
+        <!--   progressbar a pluger!  -->
+        <div class="progress-line mr-4" data-options='{"progress":<%= @project.funding*100/@project.budget %>,"text":"Funding"}'></div>
         <!--     -->
           <div class="text-sans-serif fs-1 mb-2"><span class="text-warning font-weight-black"><%= @project.budget %></span><span class="fs-0"> €</span></div>
             <div class="content-project">
               <div>
-	              <p class="text-black" href="page-product-single.html">
-	                <h3 class="mb-0"><%= @project.title %></h3>
-	              </p>
+                <p class="text-black" href="page-product-single.html">
+                  <h3 class="mb-0"><%= @project.title %></h3>
+                </p>
               </div>
               <div>
-            	  <p class="lead text-sans-serif"><%= @project.description %></p>
+                <p class="lead text-sans-serif"><%= @project.description %></p>
               </div>
               <div>
                 <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Artiste :</span><br/>
               </div>
               <div>
-              	<span class="font-weight-normal pl-1"><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></span></h6>
+                <span class="font-weight-normal pl-1"><%= @project.artist.first_name.capitalize %> <%= @project.artist.last_name[0].capitalize %></span></h6>
               </div>
               <div>
-          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Categorie :</span><br/>
-              	<span class="font-weight-normal pl-1"><%= @project.category %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Categorie :</span><br/>
+                <span class="font-weight-normal pl-1"><%= @project.category %></span></h6>
               </div>
               <div>
-          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Échéance du projet :</span><br/>
-              	<span class="font-weight-normal pl-1"><%= @project.duration %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Échéance du projet :</span><br/>
+                <span class="font-weight-normal pl-1"><%= @project.duration %></span></h6>
               </div>
               <div>
-          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Portée :</span><br/>
-              	<span class="font-weight-normal pl-1"><%= @project.scope %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Portée :</span><br/>
+                <span class="font-weight-normal pl-1"><%= @project.scope %></span></h6>
               </div>
               <div>
-          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Lieu de création :</span><br/>
-              	<span class="font-weight-normal pl-1"><%= @project.show_fav_place %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Lieu de création :</span><br/>
+                <span class="font-weight-normal pl-1"><%= @project.show_fav_place %></span></h6>
               </div>
               <div>
-          		  <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><br/>
-              	<span class="font-weight-normal pl-1"><%= @project.innovative ? "oui" : "non" %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><br/>
+                <span class="font-weight-normal pl-1"><%= @project.innovative ? "oui" : "non" %></span></h6>
               </div>
           </div>
       </div>
@@ -140,7 +144,7 @@
         if (isNaN(amount)) {
           $('#error_explanation').html('<p>Veuillez entrer une valeur valide en euros (€).</p>');
         }
-        else if (amount < 5.00) {
+        else if (amount < 100) {
           $('#error_explanation').html('<p>Le financement ne peut être inférieur à 100€.</p>');
         }
         else if (amount > max){
