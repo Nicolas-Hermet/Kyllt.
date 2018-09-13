@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
 	def simulate
-		if !params[:simu].nil?
+        if !params[:simu].nil?
             @result = params[:simu][:investissement].to_f/params[:simu][:budget].to_f*0.45*params[:simu][:vente].to_f
             @part_societe = params[:simu][:investissement].to_f/params[:simu][:budget].to_f*0.45*100
-		end
-	end
+        end
+    end
 
 
     def index

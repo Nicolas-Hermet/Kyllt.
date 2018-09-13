@@ -1,28 +1,60 @@
-<%= form_for(:simu, url: simulation_path, html: {method: :post}) do |f| %>
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="bg-white py-6 py-md-8" id="default-why-us">
 
-	<p>Combien voulez vous investir ?</p>
-	<%= f.label :investissement %>
-	<%= f.text_field :investissement %>
+  <div class="container">
+		<%= form_for(:simu, url: simulation_path, html: {method: :post}) do |f| %>
+    <div class="row align-items-center justify-content-center">
+      <div class="col-12 mb-2 mb-lg-5 text-center">
+        <h2 class="fs-3 fs-sm-4"><span class="text-underline">why sparrow?</span></h2>
+      </div>
+    </div>
+    <div class="row align-items-center justify-content-center">
+      <div class="col-sm-8 col-lg-4 text-lg-right mt-5 mt-lg-0 pr-lg-3 pr-xl-4">
+        <div class="overflow-hidden">
+					<div>
+						<p>Combien voulez vous investir ?</p>
+						<%= f.label :investissement %><br/>
+						<%= f.text_field :investissement %>
+					</div>
+					<br/><br/>
+					<div>
+						<p>Projet qui a combien de budget ?</p>
+						<%= f.label :budget %><br/>
+						<%= f.text_field :budget %>
+					</div>
+					<br/><br/>
+					<div>
+						<p>A combien sera t il vendu ?</p>
+						<%= f.label :vente %><br/>
+						<%= f.text_field :vente %>
+					</div>
 
-	<br/><br/>
+        </div>
+      </div>
+      <div class="col-sm-8 col-lg-4 mt-4 mt-lg-0 px-lg-4">
+				<%= image_tag 'child.jpg', class:'w-100 rounded' %>
+				<%= f.submit "Simuler" %>
+				<% end %>
+      </div>
 
-	<p>Projet qui a combien de budget ?</p>
-	<%= f.label :budget %>
-	<%= f.text_field :budget %>
+			<%if @result == nil || @part_societe == nil %>
 
-	<br/><br/>
 
-	<p>A combien sera t il vendu ?</p>
-	<%= f.label :vente %>
-	<%= f.text_field :vente %>
-
-	<br/><br/>
-
-	<%= f.submit "Simuler" %>
-
-	<br/><br/>
-
-<% end %>
-
-<h4> Avec cette configuration vous gagnerez <%= @result %> euros de bénéfices. </h4>
-<h4> Ce qui représente <%= @part_societe %> % des parts de la société artiste. </h4>
+      <div class="col-sm-8 col-lg-4 mt-5 mt-lg-0 pl-lg-3 pl-xl-4">
+        <div class="overflow-hidden">
+          <h4 class="mb-3" data-zanim-xs='{"delay":0.2}' data-zanim-trigger="scroll">bootstrap 4 + much more</h4>
+        </div>
+				<% else %>
+        <div class="overflow-hidden">
+          <h4 data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Avec cette configuration vous gagnerez <%= @result %> euros de bénéfices.</h4>
+					<h4 data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Ce qui représente <%= @part_societe %> % des parts de la société artiste.</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+	<% end %>
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
