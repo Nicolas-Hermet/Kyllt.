@@ -1,4 +1,6 @@
-<h2>Thanks, you paid <strong><%= @amount/100 %> €</strong>!</h2>
+<div>
+	<h3>Thanks, you paid <%= @amount/100 %> €.</h3>
 <% if current_mecene %>
 	<%= link_to 'Retour sur votre profil', mecene_path(current_mecene.id) %>
 <% end %>
+</div>

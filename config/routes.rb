@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  # Error routes
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 	devise_for :mecenes, path: 'mecenes', controllers: { sessions: "mecenes/sessions", registrations: "mecenes/registrations"}
@@ -23,5 +29,4 @@ Rails.application.routes.draw do
 
 	# Funding
 	post '/buffer/:id', to:'buffers#fund', as: 'fund_this_project'
-
 end
