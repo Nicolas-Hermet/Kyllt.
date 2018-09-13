@@ -5,13 +5,13 @@ class ChargesController < ApplicationController
 	def create
 	  @amount = params[:amount]
 
-	  @amount = @amount.gsub('$', '').gsub(',', '')
+	  @amount = @amount.gsub('€', '').gsub(',', '')
 
 	  begin
 	    @amount = Float(@amount).round(2)
 	  rescue
 	    flash[:error] = 'Financement interrompu. Veuillez rentrer un montant valide en euros (€).'
-	    redirect_to new_charge_path
+	    redirect_to project_path(Project.find(params[:id]))
 	    return
 	  end
 
@@ -19,7 +19,7 @@ class ChargesController < ApplicationController
 	  begin
 		  if @amount < 10000
 		    flash[:error] = 'Finacement interrompu. Vous ne pouvez donner que 100€ minimum'
-		    redirect_to new_charge_path
+		    redirect_to project_path(Project.find(params[:id]))
 		    return
 		  end
 
@@ -32,7 +32,7 @@ class ChargesController < ApplicationController
 
 	  rescue Stripe::CardError => e
 	    flash[:error] = e.message
-	    redirect_to new_charge_path
+	    redirect_to project_path(Project.find(params[:id]))
 	  end
 
 	  update_tables(@amount/100, params[:id])
