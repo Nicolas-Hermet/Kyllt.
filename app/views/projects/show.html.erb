@@ -123,7 +123,7 @@
         key: '<%= Rails.configuration.stripe[:publishable_key] %>',
         locale: 'auto',
         name: 'Sand Castles United',
-        description: 'One-time donation',
+        description: 'Votre financement',
         token: function(token) {
           $('input#stripeToken').val(token.id);
           $('form').submit();
