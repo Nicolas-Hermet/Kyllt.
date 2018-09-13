@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 	get '/manifesto', to: 'home#manifesto'
 	get '/artists/:id', to: "artists#show"
 	get '/mecenes/:id', to: "mecenes#show"
+	get 'home/simulation'
 
 	# Funding
 	post '/buffer/:id', to:'buffers#fund', as: 'fund_this_project'

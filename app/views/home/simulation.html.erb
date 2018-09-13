@@ -1,0 +1,15 @@
+<%= form_for @user, url: {metho: "simulate"} do |f| %>
+	<p>Combien voulez vous investir ?</p>
+	<%= f.text_field :investissement %>
+	<br/><br/>
+	<p>Projet qui a combien de budget ?</p>
+	<%= f.text_field :budget %>
+	<br/><br/>
+	<p>A combien sera t il vendu ?</p>
+	<%= f.text_area :vente %>
+	<br/><br/>
+	<%= f.submit "Create" %>
+<% end %>
+
+<h4> Avec cette configuration vous gagnerez <%= @result %> euros de bénéfices. </h4>
+<h4> Ce qui représente <%= @part_societe %> % des parts de la société artiste. </h4>
