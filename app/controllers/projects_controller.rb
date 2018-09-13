@@ -1,5 +1,8 @@
 require 'google/cloud/storage'
 class ProjectsController < ApplicationController
+	include AccessProject
+	  skip_before_action :check_mecene_for_new_project, except: [:new, :create]
+	
 	def index
 		@project = Project.all
 	end
