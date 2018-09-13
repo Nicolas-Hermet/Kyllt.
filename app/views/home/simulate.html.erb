@@ -1,14 +1,27 @@
-<%= form_for @user, url: {metho: "simulate"} do |f| %>
+<%= form_for(:simu, url: simulation_path, html: {method: :post}) do |f| %>
+
 	<p>Combien voulez vous investir ?</p>
+	<%= f.label :investissement %>
 	<%= f.text_field :investissement %>
+	
 	<br/><br/>
+	
 	<p>Projet qui a combien de budget ?</p>
+	<%= f.label :budget %>
 	<%= f.text_field :budget %>
+	
 	<br/><br/>
+	
 	<p>A combien sera t il vendu ?</p>
-	<%= f.text_area :vente %>
+	<%= f.label :vente %>
+	<%= f.text_field :vente %>
+	
 	<br/><br/>
-	<%= f.submit "Create" %>
+
+	<%= f.submit "Simuler" %>
+
+	<br/><br/>
+
 <% end %>
 
 <h4> Avec cette configuration vous gagnerez <%= @result %> euros de bénéfices. </h4>
