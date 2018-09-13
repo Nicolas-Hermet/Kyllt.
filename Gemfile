@@ -13,6 +13,7 @@ gem 'google-cloud-storage'
 gem 'pry'
 gem 'mini_magick'
 gem 'stripe'
+gem 'activeadmin'
 #########################
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -28,7 +28,8 @@ class ProjectsController < ApplicationController
 										:show_fav_place,
 										:scope,
 										:innovative,
-										uploads: []
-										)
+										:validated,
+										:archived,
+										uploads: [])
 	end
 end
