@@ -14383,11 +14383,11 @@ a.text-white:hover, a.text-white:focus {
 
 .mecenes-left{
   margin-left: 21vw;
-  margin-top: 45vh;
+  margin-top: 55vh;
 }
 .artists-right{
   margin-left: 20vw;
-  margin-top: 45vh;
+  margin-top: 55vh;
 }
 .white-mecene{
   color: white;
@@ -14569,4 +14569,8 @@ ul {
 
 .first-pic-project{
   margin-top: -25vh;
+}
+
+.gif-500{
+  margin-top: 35vh;
 }
