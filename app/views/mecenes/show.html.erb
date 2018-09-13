@@ -90,7 +90,15 @@
               <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Endroit de création:</span><span class="font-weight-normal pl-1"><%= k.show_fav_place %></span></h6>
             </li>
             <li>
-              <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><span class="font-weight-normal pl-1"><%= k.innovative %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span>
+                <span class="font-weight-normal pl-1">
+                  <% if k.innovative == true %>
+                    Oui
+                  <% else %>
+                    Non
+                  <% end %>
+                </span>
+              </h6>
             </li>
           </ul>
             <li><p>Vous avez investi <%= v.to_s %> € sur les <%= k.budget %> € demandés. Vous possédez donc <%= ((v.to_f/k.budget.to_f)*0.45*100).round.to_s %> % des parts de l'artiste </p><br /></li>

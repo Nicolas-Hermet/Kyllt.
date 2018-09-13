@@ -80,7 +80,15 @@
                 <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Endroit de création:</span><span class="font-weight-normal pl-1"><%= project.show_fav_place %></span></h6>
               </li>
               <li>
-                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><span class="font-weight-normal pl-1"><%= project.innovative %></span></h6>
+                <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span>
+                <span class="font-weight-normal pl-1">
+                  <% if project.innovative == true %>
+                    Oui
+                  <% else %>
+                    Non
+                  <% end %>
+                </span>
+              </h6>
               </li>
             </ul>
             <% if current_mecene %>
