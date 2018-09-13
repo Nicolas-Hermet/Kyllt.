@@ -1,20 +1,24 @@
+<% @result == 0 if @result.nil? %>
+<% @part_societe == 0 if @part_societe.nil? %>
+<% @investissement == 0 if @investissement.nil? %>
+
 <%= form_for(:simu, url: simulation_path, html: {method: :post}) do |f| %>
 
 	<p>Combien voulez vous investir ?</p>
 	<%= f.label :investissement %>
-	<%= f.text_field :investissement %>
+	<%= f.text_field :investissement, placeholder: "#{@investissement}" %>
 	
 	<br/><br/>
 	
 	<p>Projet qui a combien de budget ?</p>
 	<%= f.label :budget %>
-	<%= f.text_field :budget %>
+	<%= f.text_field :budget, placeholder: "#{@budget}" %>
 	
 	<br/><br/>
 	
 	<p>A combien sera t il vendu ?</p>
 	<%= f.label :vente %>
-	<%= f.text_field :vente %>
+	<%= f.text_field :vente, placeholder: "#{@vente}" %>
 	
 	<br/><br/>
 
@@ -28,7 +32,7 @@
 
 <% else %>
 
-<h4> Avec cette configuration vous gagnerez <%= @result %> euros de bénéfices. </h4>
-<h4> Ce qui représente <%= @part_societe %> % des parts de la société artiste. </h4>
+<h4> Avec cette configuration vous gagnerez <%= @result.round %> euros de bénéfices. </h4>
+<h4> Ce qui représente <%= @part_societe.round(1) %> % des parts de la société artiste. </h4>
 
 <% end %>
