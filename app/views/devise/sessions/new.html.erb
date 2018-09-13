@@ -11,9 +11,9 @@
         <div data-rellax-speed="-19" class="parallax row h-100 align-items-center justify-content-center" >
           <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll">
             <div class="artist-mecene-signup">
-            <h3 class="display-4 fs-2">You're a mecene? <br/>
-              Log in!<br/></h3>
-            <h6 class="text-danger mt-3">For the people who care about culture.</h6>
+            <h3 class="display-4 fs-2">Vous êtes mécène ?<br/>
+              Connectez-vous!<br/></h3>
+            <h6 class="text-danger mt-3">Pour ceux qui s'intéressent à la culture.</h6>
             <br/>
             </br/>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -25,10 +25,10 @@
               <div class="row mb-4">
                 <div class="col">
                   <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <em>(<%= @minimum_password_length %> caractères minimum)</em>
                   <% end %>
                   <br />
-                  <%= f.password_field :password, autocomplete: "current-password", class:"form-control border-300 bg-light", placeholder:"Password" %>
+                  <%= f.password_field :password, autocomplete: "current-password", class:"form-control border-300 bg-light", placeholder:"Mot de passe" %>
                 </div>
               </div>
               <% if devise_mapping.rememberable? -%>
@@ -39,7 +39,7 @@
               <% end -%>
               <div class="row mb-4 align-items-center">
                 <div class="col-auto">
-                  <%= f.submit "Log in", class:"btn btn-dark btn-block" %>
+                  <%= f.submit "Connexion", class:"btn btn-dark btn-block" %>
                 </div>
                 <div class="zinput zcheckbox">
                   <%= f.check_box :gcs_read, id:"cb6" %>

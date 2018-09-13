@@ -41,12 +41,12 @@
           </div>
           <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
             <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">02</span>
-              <h3>* Préférencez de financement</h3>
+              <h3>* Préférences de financement</h3>
               <p>Dites nous en plus afin que l'on vous aide dans vos placements.<br/>
                 Combien voulez vous investir ? Pour des raisons de simplicité le montant minimum est 100 euros.<br/>
                 Combien de temps pouvez vous attendre ? <br/> <br/> <br/><br/>
               <%= f.text_field :min_budget, class:"form-control border-300 bg-light", placeholder:"Combien ?" %>
-              <%= f.date_field :max_return_invest, class:"form-control border-300 bg-light", placeholder:"Quel période ?" %></p>
+              <%= f.date_field :max_return_invest, class:"form-control border-300 bg-light", placeholder:"Quelle période ?" %></p>
             </div>
           </div>
         </div>
@@ -56,10 +56,9 @@
           </div>
           <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
             <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">03</span>
-              <h3>L'art que vous préférez.</h3>
-              <p>Any preferences in the kind of art you want to fund ?<br/>
-                Tell us which kind of art you're into.<br/> <br/> <br/> <br/>
-              <%= f.text_field :art_category, class:"form-control border-300 bg-light", placeholder:"Paintings ? Photography ? ..." %></p>
+              <h3>Le style d'art que vous préféreriez.</h3>
+              <p>Une préférences ? Dites le nous !<br/> <br/> <br/> <br/>
+              <%= f.text_field :art_category, class:"form-control border-300 bg-light", placeholder:"Peinture ? Photographie ? ..." %></p>
             </div>
           </div>
         </div>
@@ -69,8 +68,8 @@
           </div>
           <div class="col-lg-6 mt-4 mt-lg-0 mb-8 mb-lg-0 my-lg-8">
             <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">04</span>
-              <h3>Places preferences</h3>
-              <p>If you want to support some local artists, enter the postal you want.<br/> <br/> <br/> <br/>
+              <h3>Localité</h3>
+              <p>Si vous souhaitez soutenir des artistes d'un secteur en particulier, entrez le département.<br/> <br/> <br/> <br/>
               <%= f.text_field :locality, class:"form-control border-300 bg-light", placeholder:"75 ? 92 ? 64 ? ..." %></p>
             </div>
           </div>
@@ -81,8 +80,8 @@
           </div>
           <div class="col-lg-6 border-lg-left border-lg-bottom border-300 py-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
             <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">05</span>
-              <h3>Bank informations.</h3>
-              <p>You want to get your revenue ? We then need to know your IBAN.<br/> <br/> <br/> <br/>
+              <h3>Informations bancaires</h3>
+              <p>Vous voulez recevoir votre argent ? Nous aurons donc besoin de votre IBAN<br/> <br/> <br/> <br/>
               <%= f.text_field :iban, class:"form-control border-300 bg-light", placeholder:"What's your IBAN?" %></p>
             </div>
           </div>
@@ -93,8 +92,8 @@
           </div>
           <div class="col-lg-6 align-self-center mt-4 mt-lg-0 mt-lg-8">
             <div class="process-item process-item-last ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">06</span>
-              <h3>Account informations.</h3>
-              <p>Want to change your password ? The email you linked to your account ?<br/> <br/> <br/> <br/>
+              <h3>Informations du compte</h3>
+              <p>Vous voulez changer de mot de passe ? L'email que vous avez lié au compte ?<br/> <br/> <br/> <br/>
 
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -103,11 +102,11 @@
                   <br />
                   <em><%= @minimum_password_length %> caractères minimum</em>
                 <% end %>
-                <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"New password (leave blank if you don't want to change it)" %>
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Password confirmation" %>
+                <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Nouveau mot de passe (si vous souhaitez en changer)" %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Confirmation du mot de passe" %>
                   <br />
                   <em>(*) Confirmez votre mot de passe.</em>
-                <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control border-300 bg-light", placeholder:"(we need your current password to confirm your changes)" %>
+                <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control border-300 bg-light", placeholder:"(Nous avons besoin de votre mot de passe)" %>
             </p>
             </div>
           </div>

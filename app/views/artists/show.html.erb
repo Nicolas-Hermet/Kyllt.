@@ -11,7 +11,7 @@
     <div class="container">
       <div class="row justify-content-center text-center py-7">
         <div class="col-lg-9 px-4">
-          <h3 class="fs-2 fs-sm-3 text-white text-profile">Welcome<br/>
+          <h3 class="fs-2 fs-sm-3 text-white text-profile">Bienvenue<br/>
           </br/><%= current_artist.first_name %> <%= current_artist.last_name %></h3>
           <br/>
       </div>
@@ -78,27 +78,19 @@
           <p class="lead text-sans-serif"><%= @project.description %></p>
           <ul class="list-unstyled mt-4">
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Art category:</span><span class="font-weight-normal pl-1"><%= @project.category %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Catégorie artistique:</span><span class="font-weight-normal pl-1"><%= @project.category %></span></h6>
           </li>
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Project's deadline:</span><span class="font-weight-normal pl-1"><%= @project.duration %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Délais du projet:</span><span class="font-weight-normal pl-1"><%= @project.duration %></span></h6>
           </li>
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Scope:</span><span class="font-weight-normal pl-1"><%= @project.scope %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Portée:</span><span class="font-weight-normal pl-1"><%= @project.scope %></span></h6>
           </li>
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Where to create:</span><span class="font-weight-normal pl-1"><%= @project.show_fav_place %></span></h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Ou voulez-vous créer ?</span><span class="font-weight-normal pl-1"><%= @project.show_fav_place %></span></h6>
           </li>
           <li>
-            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span>
-                <span class="font-weight-normal pl-1">
-                  <% if @project.innovative == true %>
-                    Oui
-                  <% else %>
-                    Non
-                  <% end %>
-                </span>
-              </h6>
+            <h6 class="fs-0 text-900 mb-1"><span class="font-weight-bold">Novateur ?</span><span class="font-weight-normal pl-1"><%= @project.innovative %></span></h6>
           </li>
         </ul>
       </div>
