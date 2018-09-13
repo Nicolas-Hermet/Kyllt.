@@ -14574,3 +14574,22 @@ ul {
 .gif-500{
   margin-top: 35vh;
 }
+
+.financement{
+  margin-top: 10vh;
+}
+
+.financement-section{
+  margin-top: -10vh;
+}
+
+.txt-center{
+  text-align: center;
+}
+
+.btn-financement{
+  display: flex;
+  justify-content: center;
+  width: 10vw;
+  margin-top: 3vh;
+}
