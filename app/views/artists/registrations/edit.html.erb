@@ -115,22 +115,20 @@
           <div class="submitbtn">
             <div class="row mb-4 align-items-center">
               <p>(*) : Champs obligatoires</p>
-                <%= f.submit "Update", class:"btn btn-danger btn-block" %>
+                <%= f.submit "Metre à jour le profil.", class:"btn btn-danger btn-block" %>
                 <% end %>
                 </div>
+                <%= link_to "Retour", current_artist %>
               </div>
-              <div class="row mb-4 align-items-center delete-account">
+              <div class="delete-account">
                 <br/> <br/> <br/>
                 <h3>You want to leave us ?</h3>
                 <br/> <br/> <br/>
-                <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:"btn btn-dark btn-block", method: :delete %></p>
-                <br/> <br/> <br/>
-              <%= link_to "Retour", current_artist %>
+                <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class:"btn btn-dark ", method: :delete %></p>
               </div>
+            </div>
           </div>
         </div>
-      </div>
-
   <!-- end of .container-->
 
 </section>
