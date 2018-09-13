@@ -1,6 +1,5 @@
 class ErrorsController < ApplicationController
   def not_found
-  	binding.pry
     render(:status => 404)
   end
 
