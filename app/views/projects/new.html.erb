@@ -11,14 +11,16 @@
       </div>
     </div>
 
-    <% if Project.where(artist: current_artist).last.validated == false %>
-      <p>Votre dernier projet est en attente de validation</p>
-    <% elsif Project.where(artist: current_artist).last.funding < Project.where(artist: current_artist).last.budget %>
-      <p>Votre dernier projet doit être financé.</p>
-    <% elsif Project.where(artist: current_artist).last.duration > Time.now %>
-      <p>Votre dernier projet doit être terminé.</p>
-    <% else %>
-      <% finished = true %>
+    <% if Project.where(artist: current_artist).count > 0 %>
+      <% if Project.where(artist: current_artist).last.validated == false %>
+        <p>Votre dernier projet est en attente de validation</p>
+      <% elsif Project.where(artist: current_artist).last.funding < Project.where(artist: current_artist).last.budget %>
+        <p>Votre dernier projet doit être financé.</p>
+      <% elsif Project.where(artist: current_artist).last.duration > Time.now %>
+        <p>Votre dernier projet doit être terminé.</p>
+      <% else %>
+        <% finished = true %>
+      <% end %>
     <% end %>
 
     <% if Project.where(artist: current_artist).count == 0  || finished %>      
