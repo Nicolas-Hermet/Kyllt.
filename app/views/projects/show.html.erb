@@ -108,7 +108,7 @@
       </div>
       <article>
         <%= label_tag(:amount, 'Montant du don :', class:"form-control border-300 bg-light") %>
-        <%= text_field_tag(:amount) %>
+        <%= text_field_tag(:amount, "", class:"form-control border-300 bg-light") %>
       </article>
       <article>
         <%= hidden_field_tag(:stripeToken) %>
@@ -122,8 +122,8 @@
       var handler = StripeCheckout.configure({
         key: '<%= Rails.configuration.stripe[:publishable_key] %>',
         locale: 'auto',
-        name: 'Sand Castles United',
-        description: 'One-time donation',
+        name: 'Excellent choix !',
+        description: 'Votre financement',
         token: function(token) {
           $('input#stripeToken').val(token.id);
           $('form').submit();

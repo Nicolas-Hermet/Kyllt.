@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 	root 'home#manifesto'
 
-	get 'home/index'
+	get 'home/index', to: 'home#index'
 	resources :artists
 	resources :mecenes
 	resources :projects

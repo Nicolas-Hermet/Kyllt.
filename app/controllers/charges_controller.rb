@@ -45,7 +45,7 @@ class ChargesController < ApplicationController
 		if current_mecene
 			@mecene = current_mecene
 		else
-			flash[:error] = "Un problème d'identification est survenu"
+			flash[:error] = "Un problème d'identification est survenu, veuillez-nous contacter."
 		end
 		Buffer.create(mecene: @mecene, project: @project, invest: amount)
 		@project.update(funding: amount+@project.funding)

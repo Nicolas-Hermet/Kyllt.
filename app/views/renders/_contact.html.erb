@@ -1,0 +1,53 @@
+<section class="text-center bg-black text-sans-serif" id="digital-contact">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <h2 class="text-white">Venez nous parler!</h2>
+        <p class="text-500">Vous avez une question ? Souhaitez plus d'informations ? Nous rencontrer ou juste discuter ? </p>
+      </div>
+    </div>
+    <form class="zform text-left mt-6">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <input type="hidden" name="to" value="username@domain.extension" />
+          <div class="form-group mb-4">
+            <label class="text-400 font-weight-bold ls fs--1">Votre nom</label>
+            <input class="fs-0 form-control border-800 bg-transparent" type="text" required="required" />
+          </div>
+          <div class="form-group mb-4">
+            <label class="text-400 font-weight-bold ls fs--1">Votre Email</label>
+            <input class="fs-0 form-control border-800 bg-transparent" type="email" required="required" />
+          </div>
+          <div class="form-group mb-4">
+            <label class="text-400 font-weight-bold ls fs--1">Votre numéro de téléphone</label>
+            <input class="fs-0 form-control border-800 bg-transparent" type="text" required="required" />
+          </div>
+          <div class="form-group mb-4">
+            <label class="text-400 font-weight-bold ls fs--1">Comment avez-vous entendu parler de nous ?</label>
+            <select class="fs-0 form-control border-800 bg-transparent">
+              <option selected="">Internet</option>
+              <option value="1">En galerie</option>
+              <option value="2">Bouche à oreille</option>
+              <option value="3">Hasard</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="form-group mb-4">
+            <label class="text-400 font-weight-bold ls fs--1">Qui êtes vous ?</label>
+            <input class="fs-0 form-control border-800 bg-transparent" type="text" required="required" />
+          </div>
+          <div class="form-group mb-4">
+            <label class="text-400 font-weight-bold ls fs--1">Votre Message</label>
+            <textarea class="fs-0 form-control border-800 bg-transparent" rows="11" required="required"></textarea>
+          </div>
+        </div>
+        <div class="col-lg-10 text-center">
+          <div class="zform-feedback my-2"></div>
+          <input class="btn btn-danger" type="submit" value="send" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- end of .container-->
+</section>
