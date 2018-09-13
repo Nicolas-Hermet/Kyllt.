@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teamx</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <%= stylesheet_link_tag "loaders.min.css" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900" %>
+    <%= stylesheet_link_tag "remodal.css" %>
+    <%= stylesheet_link_tag "remodal-default-theme.css" %>
+    <%= stylesheet_link_tag "jquery.fancybox.min.css" %>
+    <%= stylesheet_link_tag "owl.carousel.css" %>
+    <%= stylesheet_link_tag "jquery.mb.YTPlayer.min.css" %>
+    <%= stylesheet_link_tag "theme.css" %>
+
+    <%= render 'renders/fancynavbar' %>
+  </head>
+
+  <body class="has-sidemenu overflow-hidden-x">
+    <main class="main minh-100vh" id="top">
+
+      <%= render 'renders/preloader' %>
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-0" id="page-404">
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6 px-0 order-lg-2">
+              <div class="sticky-top h-lg-100vh py-9">
+                <div class="bg-holder" style="background-image:url(assets/img/404.jpg);" data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-left","delay":0.4}'>
+                </div>
+                <!--/.bg-holder-->
+
+              </div>
+            </div>
+            <div class="col-lg-6 bg-white py-6">
+              <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-lg-8">
+                  <h1 class="display-4 fs-2 fs-lg-3 fs-xl-4"><span class="d-block overflow-hidden pb-1"><span class="d-inline-block" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">Trying to get</span></span><span class="d-block overflow-hidden pb-1"><span class="d-inline-block" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">where you want</span></span>
+                    <span
+                      class="d-block overflow-hidden pb-1"><span class="d-inline-block" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">to go?</span></span>
+                  </h1>
+                  <div class="overflow-hidden">
+                    <p class="fs-1 mt-4" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">This page isn't it.</p>
+                  </div>
+                  <div class="overflow-hidden">
+                    <div data-zanim-xs='{"delay":0.6}' data-zanim-trigger="scroll">
+                      <a class="btn btn-outline-dark mt-6 mb-1" href="index.html">take me home</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+    </main>
+      <%= render "renders/footer" %>
+      <%= render 'renders/remodal' %>
+
+      <%= javascript_include_tag "js/jquery.min.js" %>
+      <%= javascript_include_tag "js/popper.min.js" %>
+      <%= javascript_include_tag "js/bootstrap.js" %>
+      <%= javascript_include_tag "js/plugins.js" %>
+      <%= javascript_include_tag "js/loaders.css.js" %>
+      <%= javascript_include_tag "js/stickyfill.min.js" %>
+      <%= javascript_include_tag "js/remodal.js" %>
+      <%= javascript_include_tag "js/owl.carousel.js" %>
+      <%= javascript_include_tag "js/rellax.min.js" %>
+      <%= javascript_include_tag "js/jquery.fancybox.min.js" %>
+      <%= javascript_include_tag "js/theme.js" %>
+  </body>
+</html>

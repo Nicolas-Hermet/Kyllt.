@@ -702,7 +702,7 @@ pre code {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 75%;
   flex: 0 0 75%;
-  max-width: 75%;
+  max-width: 80%;
 }
 
 .col-10 {
@@ -1975,6 +1975,7 @@ pre code {
   -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  margin-top: 1vh;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

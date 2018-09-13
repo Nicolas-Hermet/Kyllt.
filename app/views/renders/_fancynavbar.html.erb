@@ -59,6 +59,8 @@
                 <%= link_to 'Soumettre un projet', projects_new_path, class: "fancy-dropdown-item" %>
                 <%= link_to 'Éditez votre profil', edit_artist_registration_path, class: "fancy-dropdown-item" %>
                 <%= link_to 'Se déconnecter', destroy_artist_session_path, method: :delete, class: "fancy-dropdown-item" %>
+              <% elsif mecene_signed_in? %>
+                <%= link_to 'Se déconnecter', destroy_mecene_session_path, method: :delete, class: "fancy-dropdown-item" %>
               <% else %>
                 <%= link_to 'Se connecter', new_artist_session_path, class: "fancy-dropdown-item" %>
                 <%= link_to "S'inscrire", new_artist_registration_path, class: "fancy-dropdown-item" %>
@@ -78,6 +80,8 @@
                 <%= link_to 'Mon profil', current_mecene, class: "fancy-dropdown-item" %>
                 <%= link_to 'Éditez votre profil', edit_mecene_registration_path, class: "fancy-dropdown-item" %>
                 <%= link_to 'Se déconnecter', destroy_mecene_session_path, method: :delete, class: "fancy-dropdown-item" %>
+              <% elsif artist_signed_in? %>
+                <%= link_to 'Se déconnecter', destroy_artist_session_path, method: :delete, class: "fancy-dropdown-item" %>
               <% else %>
                 <%= link_to 'Se connecter', new_mecene_session_path, class: "fancy-dropdown-item" %>
                 <%= link_to "S'inscrire", new_mecene_registration_path, class: "fancy-dropdown-item" %>
