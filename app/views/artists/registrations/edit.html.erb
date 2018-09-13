@@ -98,15 +98,14 @@
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                 <% end %>
-
-                <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Nouveau mot de passe (vide si vous ne voulez pas changer )" %>
                 <% if @minimum_password_length %>
                   <br />
-                  <em><%= @minimum_password_length %> characters minimum</em>
+                  <em><%= @minimum_password_length %> caractères minimum</em>
                 <% end %>
-
+                <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Nouveau mot de passe (vide si vous ne voulez pas changer )" %>
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Confirmation du mot de passe" %>
-
+                <br />
+                <em>(*) confirmez votre mot de passe.</em>
                 <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control border-300 bg-light", placeholder:"Votre mot de passe actuel" %>
             </p>
             </div>
