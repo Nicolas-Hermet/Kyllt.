@@ -108,7 +108,7 @@
       </div>
       <article>
         <%= label_tag(:amount, 'Montant du don :', class:"form-control border-300 bg-light") %>
-        <%= text_field_tag(:amount) %>
+        <%= text_field_tag(:amount, "", class:"form-control border-300 bg-light") %>
       </article>
       <article>
         <%= hidden_field_tag(:stripeToken) %>
