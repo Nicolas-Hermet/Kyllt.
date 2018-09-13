@@ -8,21 +8,21 @@
         <div data-rellax-speed="-19" class="parallax row h-100 align-items-center justify-content-center" >
           <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}' data-zanim-trigger="scroll">
             <div class="artist-mecene-signup">
-            <h3 class="display-4 fs-2">You're a mecene? <br/>
-              Sign Up!<br/></h3>
-            <h6 class="text-danger mt-3">For the people who care about culture.</h6>
+            <h3 class="display-4 fs-2">Vous êtes mécène ? <br/>
+              Inscrivez-vous!<br/></h3>
+            <h6 class="text-danger mt-3">Pour ceux qui s'interessent à la culture.</h6>
             <br/>
             </br/>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
               <div class="row mb-4">
                 <div class="col">
-                  <%= f.text_field :first_name, class:"form-control border-300 bg-light", placeholder:"First name" %>
+                  <%= f.text_field :first_name, class:"form-control border-300 bg-light", placeholder:"Prénom" %>
                 </div>
               </div>
               <div class="row mb-4">
                 <div class="col">
-                  <%= f.text_field :last_name, class:"form-control border-300 bg-light", placeholder:"Last name" %>
+                  <%= f.text_field :last_name, class:"form-control border-300 bg-light", placeholder:"Nom" %>
                 </div>
               </div>
               <div class="row mb-4">
@@ -33,23 +33,23 @@
               <div class="row mb-4">
                 <div class="col">
                   <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <em>(<%= @minimum_password_length %> caractères minimum)</em>
                   <% end %><br />
-                  <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Password" %>
+                  <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Mot de passe" %>
                 </div>
                 <div class="col">
                   <%= f.label :confirmation %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Password confirmation" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-300 bg-light", placeholder:"Confirmation du mot de passe" %>
                 </div>
               </div>
               <div class="row mb-4 align-items-center">
                 <div class="col-auto">
-                  <%= f.submit "Create an Account", class:"btn btn-dark btn-block" %>
+                  <%= f.submit "Créer un compte", class:"btn btn-dark btn-block" %>
                 </div>
                 <div class="zinput zcheckbox">
                   <%= f.check_box :gcs_read, id:"cb6" %>
                   <label for="cb6">By signing up, you agree to the
-                    <%= link_to "terms and conditions.", '/' %>
+                    <%= link_to "conditions", '/' %>
                     </label>
                 </div>
               </div>
