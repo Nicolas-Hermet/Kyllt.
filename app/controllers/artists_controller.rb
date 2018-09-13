@@ -3,6 +3,6 @@ class ArtistsController < ApplicationController
 	end
 
 	def show
-		@project = Project.find_by(artist: current_artist)
+		@project = Project.where(artist: current_artist).last
 	end
 end

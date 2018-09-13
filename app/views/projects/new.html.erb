@@ -12,15 +12,20 @@
     </div>
 
     <% if Project.where(artist: current_artist).count > 0 %>
-
       <% if Project.where(artist: current_artist).last.validated == false %>
         <p>Votre dernier projet est en attente de validation</p>
       <% elsif Project.where(artist: current_artist).last.funding < Project.where(artist: current_artist).last.budget %>
         <p>Votre dernier projet doit être financé.</p>
       <% elsif Project.where(artist: current_artist).last.duration > Time.now %>
         <p>Votre dernier projet doit être terminé.</p>
+      <% else %>
+        <% finished = true %>
       <% end %>
-    <% else %>
+    <% end %>
+
+    <% if Project.where(artist: current_artist).count == 0  || finished %>
+
+
     <%= form_for(:project, url: projects_path, html: { method: :post}) do |f| %>
 
 <div class="row">
@@ -32,7 +37,7 @@
       <div class="col-lg-6 border-lg-left border-lg-bottom border-300 pb-lg-8 mt-4 mt-lg-0 mb-8 mb-lg-0">
         <div class="process-item ml-6 ml-sm-8 ml-lg-6"><span class="process-item-number">01</span>
           <h3>* Your project title.</h3>
-          <p>Quel nom voulez vous donner à votre projet ? <br/> <br/> <br/> <br/>
+          <p>What name do you want your project to have ? <br/> <br/> <br/> <br/>
             <%= f.text_field :title, class:"form-control border-300 bg-light", placeholder:"Title" %></p>
         </div>
       </div>
@@ -155,8 +160,8 @@
     </div>
   </div>
 </div>
-  <!-- end of .container-->
-  <% end %>
+          <!-- end of .container-->
+<% end %>
 <% end %>
 <!-- end of project validations -->
 </section>
