@@ -14465,6 +14465,7 @@ ul {
   font-size: 10rem;
   width: 70vw;
   margin-top: 40vh;
+  padding-bottom: 50vh;
 }
 
 .img-fluid-left{
@@ -14509,6 +14510,7 @@ ul {
 
 .bg-holder-2 {
   width: 100vw;
+
 }
 
 .text-profile{
@@ -14592,4 +14594,8 @@ ul {
   justify-content: center;
   width: 10vw;
   margin-top: 3vh;
+}
+
+.manifesto-1{
+
 }
