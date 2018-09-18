@@ -1,13 +1,4 @@
-🖼️ TeamX Final Project 🖼️
-
-https://teamx-art.herokuapp.com/
-
-
-
-
-
- 
-Made by :
+Authors :
 
 >[Louis Delestre](https://github.com/ldelestre/) </br>
 >[Jérémie DG](https://github.com/Lvmm-brkln/) </br>
