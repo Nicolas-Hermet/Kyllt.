@@ -5,8 +5,4 @@ Authors :
 >[Nico Hermet](https://github.com/Nicolas-Hermet) </br>
 >[Jeremie Edery](https://github.com/jjeleven11) </br>
 
-in Biarritz 
-
-
-
- © 2018 Team-X :rocket:
+in Biarritz © 2018 Team-X :rocket:
