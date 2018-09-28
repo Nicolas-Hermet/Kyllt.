@@ -5,24 +5,15 @@
 <!-- ============================================-->
 <!-- <section> begin ============================-->
 <section class="py-0 overflow-hidden" id="landing-banner">
-
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col px-3" data-zanim-timeline="{}" data-zanim-trigger="scroll">
 				<div class="position-relative overflow-hidden rounded">
-					<div class="bg-holder overlay rounded" style="background: url(<%= asset_path 'thanksjack.jpg' %>) no-repeat; background-size: cover;">
-					</div>
+					<div class="bg-holder overlay rounded" style="background: url(<%= asset_path 'welcome.jpg' %>) no-repeat; background-size: cover;">	</div>
 					<!--/.bg-holder-->
 					<div class="position-relative py-11 px-3 px-lg-9">
-						<h1 class="text-white fs-2 fs-sm-4 fs-md-5 parallax display-4" data-rellax-percentage="0.5" data-rellax-speed="2"><span class="d-block overflow-hidden"><span class="d-inline-block" data-zanim-xs='{"delay":0.1}'>Merci d'avoir </span></span><span class="d-block overflow-hidden"><span class="d-inline-block" data-zanim-xs='{"delay":0.2}'>déboursé <%= @amount/100 %> €</span></span>
-							<span
-								class="d-block overflow-hidden"><span class="d-inline-block" data-zanim-xs='{"delay":0.3}'><%= current_mecene.first_name.capitalize %>!</span></span>
+						<h1 class="text-white fs-2 fs-sm-4 fs-md-5 parallax display-4" data-rellax-percentage="0.5" data-rellax-speed="2"><span class="d-block overflow-hidden"><span class="d-inline-block" data-zanim-xs='{"delay":0.1}'>Bienvenue dans la famille <%= current_mecene.first_name.capitalize %> ! </span></span><span class="d-block overflow-hidden"><span class="d-inline-block" data-zanim-xs='{"delay":0.2}'>Merci pour votre contribution de <%= @amount/100 %> €</span></span>
 						</h1>
-						<div>
-							<% if current_mecene %>
-							<p><%= link_to 'Retour sur votre profil', mecene_path(current_mecene.id) %></p>
-						<% end %>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -32,3 +23,12 @@
 </section>
 <!-- <section> close ============================-->
 <!-- ============================================-->
+<section>
+  <div class="submitbtn btn-profil">
+    <div class="row mb-4 align-items-center">
+      <% if current_mecene %>
+      <%= link_to "Retour sur votre profil", mecene_path(current_mecene.id), class:"btn btn-danger " %></p>
+      <% end %>
+    </div>
+  </div>
+</section>
