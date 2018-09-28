@@ -27,7 +27,7 @@
 
 <section>
   <div class="container">
-    <div class="row index-flex parallax" data-rellax-speed="4">
+    <div class="row index-flex">
       <% @project.each do |project| %>
         <% if project.validated && project.funding < project.budget %>
           <div class="col-lg-6">
