@@ -14599,3 +14599,8 @@ ul {
 .manifesto-1{
 
 }
+
+.btn-profil{
+  display: flex;
+  justify-content: center;
+}
