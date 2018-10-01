@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   match "/500", :to => "errors#internal_server_error", :via => :all
   get 'errors/not_found'
   get 'errors/internal_server_error'
-  
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 	devise_for :mecenes, path: 'mecenes', controllers: { sessions: "mecenes/sessions", registrations: "mecenes/registrations"}
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 	get '/artists/:id', to: "artists#show"
 	get '/mecenes/:id', to: "mecenes#show"
 	get 'home/simulate'
-    post 'home/simulate', to: 'home#simulate', as: 'simulation'
+    post 'simulation_results', to: 'home#simulation_results'
 
 	# Funding
 	post '/buffer/:id', to:'buffers#fund', as: 'fund_this_project'
